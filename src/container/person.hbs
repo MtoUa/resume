@@ -1,0 +1,36 @@
+{{#with person}}
+<header>
+    <h1>{{name}}</h1>
+
+    <div style="font-size: 20px;">
+        <b>{{age}}, {{gender}}</b>
+    </div>
+
+    <br />
+
+    {{#each education}}
+    <div>
+        <strong>
+            <div>{{degree}} in {{major}},</div>
+            <div>{{university}}, {{graduationYear}}</div>
+        </strong>
+    </div>
+    {{/each}}
+
+    <br />
+
+    {{#with address}}
+    <address>
+        <div>{{street}}</div>
+        <div>{{city}}, {{state}} {{zip}}</div>
+        <div>{{country}}</div>
+    </address>
+    {{/with}}
+</header>
+
+<hr />
+
+<section>
+
+</section>
+{{/with}}
