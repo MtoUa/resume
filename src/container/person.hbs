@@ -2,7 +2,7 @@
 <header>
     <h1>{{name}}</h1>
 
-    <div style="font-size: 20px;">
+    <div style="font-size: 21px;">
         <b>{{age}}, {{gender}}</b>
     </div>
 
@@ -29,8 +29,103 @@
 </header>
 
 <hr />
+{{#each workExperience}}
+<main>
+    <h2>Work experience:</h2>
+    <ul>
+        <li>
+            <details>
+                <summary style="font-size: 21px;">
+                    <strong>{{company}}</strong>
+                </summary>
+                <small>
+                    <div>Industry: {{industry}}</div>
+                    <div>Foundation year: {{year_founded}}</div>
 
-<section>
+                    <br />
 
-</section>
+                    {{#each employees}}
+                    <div>{{department}} department:</div>
+                    <div>
+                        <b>{{position}}:</b> {{name}}
+                    </div>
+                    <section>
+                        {{#each projects}}
+                        <div>Projects:</div>
+                        <ul>
+                            <li>
+                                <div>
+                                    <b title="{{description}}">"{{name}}"</b> ({{status}})
+                                    {{#each teams}} by
+                                    <em>{{team_name}}</em>, with:
+                                </div>
+
+                                <ul>
+                                    <li>
+                                        {{#with team_leader}}
+                                        <a href="mailto:{{email}}" target="_blank">{{name}}</a>
+                                        as a {{title}}
+                                        {{/with}}
+                                    </li>
+                                    {{#each team_members}}
+                                    <li>
+                                        <div>
+                                            <a href="mailto:{{email}}" target="_blank">{{name}}</a>
+                                            as a {{title}}
+                                            ({{#each skills}}{{this}}{{#unless @last}}, {{/unless}}{{/each}})
+                                        </div>
+
+                                        <details>
+                                            <summary>Projects:</summary>
+                                            {{#each projects}}
+                                            <ul>
+                                                <li>
+                                                    <div>
+                                                        <b title="{{description}}">"{{name}}"</b>
+                                                        ({{#each technologies}}{{this}}{{#unless @last}},
+                                                        {{/unless}}{{/each}}) with:
+                                                    </div>
+                                                    {{#each team_members}}
+                                                    <ul>
+                                                        <li>
+                                                            <div>{{name}} as a {{title}}</div>
+                                                        </li>
+                                                    </ul>
+                                                    {{/each}}
+                                                </li>
+                                            </ul>
+                                            {{/each}}
+                                        </details>
+                                    </li>
+                                    {{/each}}
+                                </ul>
+                                {{/each}}
+                            </li>
+                        </ul>
+                        {{/each}}
+                    </section>
+                    {{/each}}
+                </small>
+            </details>
+
+            <br />
+
+            <div>
+                <b>{{title}}</b>
+                <time>({{startDate}} – {{endDate}})</time>
+            </div>
+
+            <br />
+
+            {{#each responsibilities}}
+            <div>
+                {{this}}
+            </div>
+            {{/each}}
+        </li>
+    </ul>
+</main>
+{{/each}}
+
+<hr />
 {{/with}}
