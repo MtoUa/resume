@@ -83,21 +83,11 @@
             {{/each}}
         </ul>
 
-
-
-        {{> title data='About guide:'}}
         {{#with guide}}
-        <ul>
-            <li>
-                Name: <i>{{name}}</i>
-            </li>
-            <li>
-                Language: <i>{{language}}</i>
-            </li>
-            <li>
-                Rating: <i>{{rating}}</i>
-            </li>
-        </ul>
+        <div>
+            <b>Guide:</b>
+            <i>{{name}}</i>, speaks {{language}}, {{rating}} rating.
+        </div>
         {{/with}}
         {{/with}}
     </section>
