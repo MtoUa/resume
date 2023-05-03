@@ -1,0 +1,85 @@
+{{#with web}}
+<header>
+    <h1>Front-end languages kit:</h1>
+</header>
+
+<main>
+    {{#each languages}}
+
+    <h2>{{name}} <small>(actual version is {{version}})</small></h2>
+
+    {{> n-d noname=true}}
+
+    <section>
+        {{#if elements}}
+        {{> title data='Elements:'}}
+        {{#each elements}}
+        <ul>
+            <li>
+                {{> n-d}}
+                <div style="margin: 16px;">
+                    <i>Attributes:</i>
+                </div>
+                {{#each attributes}}
+                <ul>
+                    <li>
+                        {{> n-d}}
+                    </li>
+                </ul>
+                {{/each}}
+            </li>
+        </ul>
+        {{/each}}
+        {{/if}}
+
+        {{#if properties}}
+        {{> title data='Properties:'}}
+        {{#each properties}}
+        <ul>
+            <li>
+                {{> n-d}}
+                <div style="margin: 16px;">
+                    <i>Values(for example):</i>
+                </div>
+                {{#each values}}
+                <ul>
+                    <li>
+                        <div>
+                            <b>"{{value}}"</b> – {{description}}
+                        </div>
+                    </li>
+                </ul>
+                {{/each}}
+            </li>
+        </ul>
+        {{/each}}
+        {{/if}}
+
+        {{#if functions}}
+        {{> title data='Functions:'}}
+        {{#each functions}}
+        <ul>
+            <li>
+                {{> n-d}}
+                <div style="margin: 16px;">
+                    <i>Parameters:</i>
+                </div>
+                {{#each parameters}}
+                <ul>
+                    <li>
+                        <div>
+                            <b>"{{name}}"</b> <i>(type: {{type}})</i> – {{description}}
+                        </div>
+                    </li>
+                </ul>
+                {{/each}}
+            </li>
+        </ul>
+        {{/each}}
+        {{/if}}
+    </section>
+
+    {{/each}}
+</main>
+
+{{/with}}
