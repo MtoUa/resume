@@ -6,11 +6,15 @@
 <main>
     {{#each languages}}
 
+    <hr />
+
     <h2>{{name}} <small>(actual version is {{version}})</small></h2>
 
     {{> n-d noname=true}}
 
     <section>
+
+
         {{#if elements}}
         {{> title data='Elements:'}}
         {{#each elements}}
