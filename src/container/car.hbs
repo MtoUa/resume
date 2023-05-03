@@ -1,0 +1,41 @@
+<header>
+    <h1>{{make}} {{model}} {{year}} ({{color}})</h1>
+
+    {{> title data='Specifications:' big=true}}
+</header>
+
+
+<main>
+    {{#with features}}
+
+    {{#with interior}}
+    {{> title data='Interior:'}}
+
+    <section>
+        <h4>Seats:</h4>
+        {{#with seats}}
+        <ul>
+            <li>
+                <div>Material: {{material}}</div>
+            </li>
+            <li>
+                <div>Color: {{color}}</div>
+            </li>
+            <li>
+                <div>
+                    Seat heating:
+                    {{#if heated}}
+                    available
+                    {{else}}
+                    unavailable
+                    {{/if}}
+                </div>
+            </li>
+        </ul>
+        {{/with}}
+    </section>
+
+    {{/with}}
+
+    {{/with}}
+</main>
