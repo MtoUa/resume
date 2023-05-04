@@ -1,0 +1,21 @@
+<header>
+    <small>{{category}}</small>
+    <br />
+    <h1>{{name}}</h1>
+    <p>
+        <b>{{description}}</b>
+    </p>
+    <div>
+        <b style="font-size: 24px;">${{price}}</b>
+    </div>
+</header>
+
+<main>
+    <hr />
+
+    {{> title data='Specifications:' big=true}}
+
+    {{#with features}}
+
+    {{/with}}
+</main>
