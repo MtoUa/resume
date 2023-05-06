@@ -1,0 +1,143 @@
+<header>
+    <small>{{category}}</small>
+    <br />
+    <h1>{{name}}</h1>
+    <p>
+        <b>{{description}}</b>
+    </p>
+    <div>
+        <b style="font-size: 24px;">${{price}}</b>
+    </div>
+</header>
+
+{{#with features}}
+<main>
+    <hr />
+
+    {{> title data='Specifications:' big=true}}
+
+    <section>
+        {{> title data='Processor:'}}
+        {{#with processor}}
+        <ul>
+            {{> li-el var='Brand:' val=brand}}
+            {{> li-el var='Model:' val=model}}
+            {{> li-el var='Speed:' val=speed}}
+            {{> li-el var='Cores:' val=cores}}
+            {{> li-el var='Cache:' val=cache}}
+        </ul>
+        {{/with}}
+    </section>
+
+    <section>
+        {{> title data='Memory:'}}
+        {{#with memory}}
+        <ul>
+            {{> li-el var='Type:' val=type}}
+            {{> li-el var='Size:' val=size}}
+            {{> li-el var='Speed:' val=speed}}
+        </ul>
+        {{/with}}
+    </section>
+
+    <section>
+        {{> title data='Storage:'}}
+        {{#with storage}}
+        <ul>
+            {{> li-el var='Type:' val=type}}
+            {{> li-el var='Size:' val=size}}
+        </ul>
+        {{/with}}
+    </section>
+
+    <section>
+        {{> title data='Display:'}}
+        {{#with display}}
+        <ul>
+            {{> li-el var='Size:' val=size}}
+            {{> li-el var='Resolution:' val=resolution}}
+            {{> li-el var='Technology:' val=technology}}
+            {{> li-el var='Color space:' val=color_space}}
+            {{> li-el var='Brightness:' val=brightness}}
+            {{> li-el var='Refresh rate:' val=refresh_rate}}
+        </ul>
+        {{/with}}
+    </section>
+
+    <section>
+        {{> title data='Graphics:'}}
+        {{#with graphics}}
+        <ul>
+            {{> li-el var='Brand:' val=brand}}
+            {{> li-el var='Model:' val=model}}
+            {{> li-el var='Memory:' val=memory}}
+        </ul>
+        {{/with}}
+    </section>
+
+    <section>
+        {{> title data='Ports:'}}
+        {{#each ports}}
+        <ul>
+            {{> li-el var='Type:' val=type}}
+            {{> li-el var='Number:' val=count}}
+            {{#if features}}
+            <li>
+                <b>Features:</b>
+                {{#each features}}
+                {{this}}{{#unless @last}}, {{/unless}}
+                {{/each}}
+            </li>
+            {{/if}}
+        </ul>
+        {{/each}}
+    </section>
+
+    <section>
+        {{> title data='Battery:'}}
+        {{#with battery}}
+        <ul>
+            {{> li-el var='Type:' val=type}}
+            {{> li-el var='Capacity:' val=capacity}}
+            {{> li-el var='Life:' val=life}}
+        </ul>
+        {{/with}}
+    </section>
+
+    <section>
+        {{> title data='Weight & dimensions:'}}
+        {{#with dimensions}}
+        <ul>
+            {{> li-el var='Weight:' val=../weight}}
+            {{> li-el var='Height:' val=height}}
+            {{> li-el var='Width:' val=width}}
+            {{> li-el var='Depth:' val=depth}}
+        </ul>
+        {{/with}}
+    </section>
+
+    <section>
+        {{> title data='Operating system:'}}
+        <ul>
+            <li>
+                <b>{{operating_system}}</b>
+            </li>
+        </ul>
+    </section>
+
+    <hr />
+</main>
+
+<footer>
+    {{> title data='Recommended accessories:' big=true}}
+
+    <ul>
+        {{#each accessories}}
+        <li>
+            <i>{{name}}</i> – ${{price}}
+        </li>
+        {{/each}}
+    </ul>
+    <br />
+</footer>
+{{/with}}
