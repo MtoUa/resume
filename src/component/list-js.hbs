@@ -1,0 +1,21 @@
+<section>
+    {{> title data=text}}
+
+    <ul>
+        {{#if i}}
+
+        {{#each var}}
+        <li>
+            <i>{{this}};</i>
+        </li>
+        {{/each}}
+
+        {{else}}
+
+        {{#each var}}
+        <li>{{this}};</li>
+        {{/each}}
+
+        {{/if}}
+    </ul>
+</section>
