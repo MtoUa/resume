@@ -1,0 +1,98 @@
+<header>
+    <h1>{{name}}</h1>
+</header>
+
+<main>
+    {{#each users}}
+
+    <hr />
+
+    {{> title data='User:' big=true}}
+
+    <section>
+        <ul>
+            {{> user-info main-user=true}}
+            {{#if friends}}
+            <li>
+                <b>Friends:</b>
+                <br />
+                {{#each friends}}
+                <ul style="margin-left: 32px;">
+                    {{> user-info}}
+                    {{#if mutual_friends}}
+                    <li>
+                        <b>Mutual friends:</b>
+                        <br />
+                        {{#each mutual_friends}}
+                        <ul style="margin-left: 88px;">
+                            {{> user-info}}
+                            {{#if mutual_friends}}
+                            <li>
+                                <b>Mutual friends:</b>
+                                <br />
+                                {{#each mutual_friends}}
+                                <ul style="margin-left: 88px;">
+                                    {{> user-info}}
+                                </ul>
+                                <br />
+                                {{/each}}
+                            </li>
+                            {{/if}}
+                        </ul>
+                        <br />
+                        {{/each}}
+                    </li>
+                    {{/if}}
+
+                    {{#if groups}}
+                    <li>
+                        <b>Groups:</b>
+                        <br />
+                        {{#each groups}}
+                        <ul style="margin-left: 88px;">
+                            {{> user-info qm=true}}
+                            <li>
+                                <b>Members:</b>
+                                <br />
+                                {{#each members}}
+                                <ul style="margin-left: 88px;">
+                                    {{> user-info}}
+                                </ul>
+                                <br />
+                                {{/each}}
+                            </li>
+                        </ul>
+                        {{/each}}
+                    </li>
+                    {{/if}}
+                </ul>
+                <br />
+                {{/each}}
+            </li>
+            {{/if}}
+
+            {{#if groups}}
+            <li>
+                <b>Groups:</b>
+                <br />
+                {{#each groups}}
+                <ul style="margin-left: 32px;">
+                    {{> user-info qm=true}}
+                    <li>
+                        <b>Members:</b>
+                        <br />
+                        {{#each members}}
+                        <ul style="margin-left: 88px;">
+                            {{> user-info}}
+                        </ul>
+                        <br />
+                        {{/each}}
+                    </li>
+                </ul>
+                {{/each}}
+            </li>
+            {{/if}}
+        </ul>
+    </section>
+    {{/each}}
+</main>
