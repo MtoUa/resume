@@ -7,11 +7,11 @@
 
     <hr />
 
-    {{> title data='People:' big=true}}
+    {{> title data='User:' big=true}}
 
     <section>
-        <ul style="margin-left: 32px;">
-            {{> user-info big=true}}
+        <ul>
+            {{> user-info main-user=true}}
             {{#if friends}}
             <li>
                 <b>Friends:</b>
@@ -43,61 +43,56 @@
                         {{/each}}
                     </li>
                     {{/if}}
+
+                    {{#if groups}}
+                    <li>
+                        <b>Groups:</b>
+                        <br />
+                        {{#each groups}}
+                        <ul style="margin-left: 88px;">
+                            {{> user-info qm=true}}
+                            <li>
+                                <b>Members:</b>
+                                <br />
+                                {{#each members}}
+                                <ul style="margin-left: 88px;">
+                                    {{> user-info}}
+                                </ul>
+                                <br />
+                                {{/each}}
+                            </li>
+                        </ul>
+                        {{/each}}
+                    </li>
+                    {{/if}}
                 </ul>
                 <br />
                 {{/each}}
             </li>
             {{/if}}
-        </ul>
-    </section>
 
-    <hr />
-
-    {{> title data='Groups:' big=true}}
-
-    <section>
-        {{#unless groups}}
-
-        {{#each friends}}
-        {{#each groups}}
-        <ul style="margin-left: 32px;">
-            {{> user-info big=true}}
+            {{#if groups}}
             <li>
-                <b>Members:</b>
+                <b>Groups:</b>
                 <br />
-                {{#each members}}
-                <ul style="margin-left: 48px;">
-                    {{> user-info}}
+                {{#each groups}}
+                <ul style="margin-left: 32px;">
+                    {{> user-info qm=true}}
+                    <li>
+                        <b>Members:</b>
+                        <br />
+                        {{#each members}}
+                        <ul style="margin-left: 88px;">
+                            {{> user-info}}
+                        </ul>
+                        <br />
+                        {{/each}}
+                    </li>
                 </ul>
-                <br />
                 {{/each}}
             </li>
+            {{/if}}
         </ul>
-        {{/each}}
-        {{/each}}
-
-        {{else}}
-
-        {{#each groups}}
-        <ul style="margin-left: 32px;">
-            {{> user-info big=true}}
-            <li>
-                <b>Members:</b>
-                <br />
-                {{#each members}}
-                <ul style="margin-left: 48px;">
-                    {{> user-info}}
-                </ul>
-                <br />
-                {{/each}}
-            </li>
-        </ul>
-        {{/each}}
-
-        {{/unless}}
     </section>
-
     {{/each}}
-
-    <hr />
 </main>
