@@ -1,0 +1,6 @@
+<li>
+    <b>{{title}}:</b>
+    {{#each data }}
+    '{{this}}'{{#unless @last}}, {{else}};{{/unless}}
+    {{/each}}
+</li>
