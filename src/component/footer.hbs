@@ -1,6 +1,3 @@
-<br />
-<hr style="margin: 32px" />
-
 <footer>
     {{#with footer}}
     <div>
@@ -10,13 +7,11 @@
         {{> link href=linkedin.href text=linkedin.text blank=true noLine=true}}
         {{/with}}
     </div>
-    <br />
-    <div>
+    <div class="my-3">
         {{#with ../header.name}}
         <em>Copyright by {{firstname}} {{lastname}}</em>
         {{/with}}
     </div>
-    <br />
     <div>
         {{../header.address}}
     </div>
