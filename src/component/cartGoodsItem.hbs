@@ -1,0 +1,23 @@
+<div class="card mb-4">
+    <div class="card-body p-2 row gx-3">
+        <img class="col-2" style="border-radius: 15px;" src="{{image}}" alt="{{name}}">
+        <div class="col-4 ms-0 py-2 d-flex flex-column align-items-start justify-content-center">
+            <div class="card-title h5">{{name}}</div>
+            <div>{{description}}</div>
+        </div>
+        <div class="col-2 d-flex flex-column align-items-start justify-content-center">
+            {{#with price}}
+            <div class="mb-2">{{title}}:</div>
+            <span class="h5">{{value}}</span>
+            {{/with}}
+        </div>
+        <div class="col-2 d-flex flex-column align-items-start justify-content-center">{{amount}}</div>
+        <div class="col-1 d-flex flex-column align-items-start justify-content-center my-3">
+            {{#each buttons}}
+            <button class="btn
+            btn-{{#if isPrimary}}primary{{/if}}{{#if isDanger}}outline-danger{{/if}} mb-3">
+                {{text}}</button>
+            {{/each}}
+        </div>
+    </div>
+</div>

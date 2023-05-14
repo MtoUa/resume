@@ -1,5 +1,3 @@
-{{> shop-nav}}
-
 <main class="row g-3">
     <h1 class="mb-5">{{header}}</h1>
     <div class="col-8">
@@ -50,7 +48,9 @@
             {{/with}}
             {{/with}}
         </section>
+
         <hr class="my-4" />
+
         <section>
             {{#with delivery}}
             <h2>{{title}}</h2>
@@ -118,7 +118,9 @@
             </div>
             {{/with}}
         </section>
+
         <hr class="my-4" />
+
         <section>
             {{#with coupon}}
             <h2>{{title}}</h2>
@@ -152,7 +154,9 @@
             </div>
             {{/with}}
         </section>
+
         <hr class="my-4" />
+
         <section>
             {{#with quiz}}
             <h2>{{title}}</h2>
@@ -186,6 +190,7 @@
             {{/with}}
         </section>
     </div>
+
     <aside class="col-4">
         <div class="card mb-3">
             <div class="card-body px-2 pt-3 pb-2">
@@ -227,5 +232,3 @@
         </div>
     </aside>
 </main>
-
-{{> shop-footer}}
