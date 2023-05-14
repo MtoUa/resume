@@ -1,0 +1,23 @@
+<tr class="row mt-4">
+    <td class="col-4">
+        <div class="mb-1">{{number}}</div>
+        <b>{{status}}</b>
+    </td>
+    <td class="col-2">
+        {{#with amount}}
+        <div>{{title}}:</div>
+        <div class="h5 mt-1">{{value}}</d>
+            {{/with}}
+    </td>
+    <td class="col-5">
+        {{#each images}}
+        <img src="{{this}}" class="me-1" style="border-radius: 15px;">
+        {{/each}}
+    </td>
+    <td class="col-1">
+        {{#with button}}
+        <a href="{{link}}" class="btn btn-{{#if isPrimary}}primary{{/if}}">
+            {{text}}</a>
+        {{/with}}
+    </td>
+</tr>
