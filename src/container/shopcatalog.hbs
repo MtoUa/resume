@@ -1,3 +1,84 @@
+<nav class="my-5">
+    <ol class="breadcrumb">
+        {{#each breadcrumb}}
+        {{#if url}}
+        <li class="breadcrumb-item">
+            <a href="{{url}}">{{name}}</a>
+        </li>
+        {{else}}
+        <li class="breadcrumb-item">
+            {{name}}
+        </li>
+        {{/if}}
+        {{/each}}
+    </ol>
+</nav>
+
 <main>
+    <h1>{{header}}</h1>
+    <div class="row gx-2 mt-4 mb-5">
+        {{#each sortBlock}}
+        <div class="col-3">{{> shop-select}}</div>
+        {{/each}}
+    </div>
+
+    <div class="row gx-3">
+        <aside class="col-4 mb-5">
+            <div class="card">
+                <div class="card-body">
+                    {{#with filterBlock}}
+                    <div>
+                        {{#with sellers}}
+                        <div class="mb-3">{{title}}</div>
+                        {{> shop-checkbox options=list}}
+                        {{/with}}
+                    </div>
+                    <hr class="my-4" />
+                    <div>
+                        {{#with brands}}
+                        <div class="mb-3">{{title}}</div>
+                        <input placeholder="{{input.placeholder}}" class="form-control mb-3">
+                        {{> shop-checkbox}}
+                        {{/with}}
+                    </div>
+                    <hr class="my-4" />
+                    <div>
+                        {{#with price}}
+                        <div class="mb-3">{{title}}</div>
+                        <div>
+                            {{#with range}}
+                            <input placeholder="{{from}}" class="form-control mb-3">
+                            <input placeholder="{{to}}" class="form-control mb-3">
+                            {{/with}}
+                        </div>
+                        <div>
+                            {{#with button}}
+                            <a href="{{link}}" class="btn btn-outline-secondary px-3">{{text}}</a>
+                            {{/with}}
+                        </div>
+                        {{/with}}
+                    </div>
+                    <hr class="my-4" />
+                    <div>
+                        {{#each filterList}}
+                        <div class="mb-3">{{title}}</div>
+                        {{> shop-checkbox}}
+                        {{#unless @last}}
+                        <hr class="my-4" />{{/unless}}
+                        {{/each}}
+                    </div>
+                    {{/with}}
+                </div>
+            </div>
+        </aside>
+        <section class="col-8">
+            <div class="row gx-3 gy-4">
+                {{#each goodsList}}
+                {{> catalogItem}}
+                {{/each}}
+            </div>
+        </section>
+    </div>
+
     {{> greenCard}}
 </main>
