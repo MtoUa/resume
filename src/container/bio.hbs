@@ -1,15 +1,15 @@
-<main class="card mb-4">
+<main class="card bg-info mb-5">
     <div class="card-body">
-        <h1 class="card-title display-3 mb-3">{{name}}</h1>
+        <h1 class="card-title display-3 text-white mb-3">{{name}}</h1>
         <section>
-            <div class="card mb-3">
+            <div class="card bg-info-subtle mb-3">
                 <div class="card-body pt-2">
-                    <div class="card-title display-6 mb-3">Main info</div>
+                    <div class="card-title display-6 text-info-emphasis mb-3">Main info</div>
                     <section class="row g-3">
                         <section class="col-4">
                             <div class="card h-100">
-                                <div class="card-header h4">Known for:</div>
-                                <ul class="card-body pt-2 pb-0 ms-3">
+                                <div class="card-header h4 bg-info text-white">Known for</div>
+                                <ul class="card-body text-info-emphasis pt-2 pb-0 ms-3">
                                     {{#each known_for}}
                                     <li{{#unless @last}} class="mb-2" {{/unless}}>
                                         <strong>{{this}}</strong>
@@ -20,8 +20,8 @@
                         </section>
                         <section class="col">
                             <div class="card h-100">
-                                <div class="card-header h4">Short bio:</div>
-                                <p class="card-body pt-2 pb-0">
+                                <div class="card-header h4 bg-info text-white">Short bio</div>
+                                <p class="card-body text-info-emphasis pt-2 pb-0">
                                     Was born on <b>
                                         <time>{{birthdate}}</time>
                                     </b>
@@ -41,14 +41,14 @@
                     </section>
                 </div>
             </div>
-            <div class="card mb-3">
+            <div class="card bg-info-subtle mb-3">
                 <div class="card-body pt-2">
-                    <div class="card-title display-6 mb-3">Science activity</div>
+                    <div class="card-title display-6 text-info-emphasis mb-3">Science activity</div>
                     <section class="row g-3">
                         <section class="col">
                             <div class="card h-100">
-                                <div class="card-header h4">Notable publications:</div>
-                                <ul class="card-body pt-2 pb-0 ms-3">
+                                <div class="card-header h4 bg-info text-white">Notable publications</div>
+                                <ul class="card-body text-info-emphasis pt-2 pb-0 ms-3">
                                     {{#each notable_publications}}
                                     <li{{#unless @last}} class="mb-2" {{/unless}}>
                                         <i>"{{title}}"</i> (<time>{{year}}</time>, {{publisher}})
@@ -59,8 +59,8 @@
                         </section>
                         <section class="col">
                             <div class="card h-100">
-                                <div class="card-header h4">Major discoveries:</div>
-                                <ul class="card-body pt-2 pb-0 ms-3">
+                                <div class="card-header h4 bg-info text-white">Major discoveries</div>
+                                <ul class="card-body text-info-emphasis pt-2 pb-0 ms-3">
                                     {{#each major_discoveries}}
                                     <li{{#unless @last}} class="mb-2" {{/unless}}>
                                         <b>{{title}}</b> (<time>{{year}}</time>) – {{description}}
@@ -71,8 +71,8 @@
                         </section>
                         <section class="col">
                             <div class="card h-100">
-                                <div class="card-header h4">Awards:</div>
-                                <ul class="card-body pt-2 pb-0 ms-3">
+                                <div class="card-header h4 bg-info text-white">Awards</div>
+                                <ul class="card-body text-info-emphasis pt-2 pb-0 ms-3">
                                     {{#each awards}}
                                     <li{{#unless @last}} class="mb-2" {{/unless}}>
                                         <b>{{title}}</b> (<time>{{year}}</time>) – {{description}}
@@ -84,14 +84,14 @@
                     </section>
                 </div>
             </div>
-            <div class="card mb-3">
+            <div class="card bg-info-subtle mb-3">
                 <div class="card-body pt-2">
-                    <div class="card-title display-6 mb-3">Influence</div>
+                    <div class="card-title display-6 text-info-emphasis mb-3">Influence</div>
                     <section class="row g-3">
                         <section class="col">
                             <div class="card h-100">
-                                <div class="card-header h4">Partners:</div>
-                                <ul class="card-body pt-2 pb-0 ms-3">
+                                <div class="card-header h4 bg-info text-white">Partners</div>
+                                <ul class="card-body text-info-emphasis pt-2 pb-0 ms-3">
                                     {{#each partners}}
                                     <li{{#unless @last}} class="mb-2" {{/unless}}>
                                         <i>{{name}}</i>, {{relationship}} (<time>{{years}}</time>)
@@ -102,8 +102,8 @@
                         </section>
                         <section class="col">
                             <div class="card h-100">
-                                <div class="card-header h4">Influences:</div>
-                                <ul class="card-body pt-2 pb-0 ms-3">
+                                <div class="card-header h4 bg-info text-white">Influences</div>
+                                <ul class="card-body text-info-emphasis pt-2 pb-0 ms-3">
                                     {{#each influences}}
                                     <li{{#unless @last}} class="mb-2" {{/unless}}>
                                         <i>{{this}}</i>
@@ -114,8 +114,8 @@
                         </section>
                         <section class="col">
                             <div class="card h-100">
-                                <div class="card-header h4">Influenced:</div>
-                                <ul class="card-body pt-2 pb-0 ms-3">
+                                <div class="card-header h4 bg-info text-white">Influenced</div>
+                                <ul class="card-body text-info-emphasis pt-2 pb-0 ms-3">
                                     {{#each influenced}}
                                     <li{{#unless @last}} class="mb-2" {{/unless}}>
                                         <em>{{this}}</em>
@@ -127,34 +127,38 @@
                     </section>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-body pt-2">
-                    <div class="card-title display-6 mb-3">The best quotes</div>
-                    <ul class="list-group ">
-                        {{#each quotes}}
-                        <li class="list-group-item">
-                            <q>
-                                <b>
-                                    <i>{{this}}</i>
-                                </b>
-                            </q>
-                        </li>
-                        {{/each}}
-                    </ul>
-                </div>
-            </div>
+            <section class="row justify-content-center g-3">
+                <section class="col-8">
+                    <div class="card bg-info-subtle">
+                        <div class="card-body pt-2">
+                            <div class="card-title display-6 text-info-emphasis mb-3">The best quotes</div>
+                            <ul class="list-group">
+                                {{#each quotes}}
+                                <li class="list-group-item text-info-emphasis">
+                                    <q>
+                                        <b>
+                                            <i>{{this}}</i>
+                                        </b>
+                                    </q>
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </section>
         </section>
     </div>
 </main>
 
-<section class="row g-3">
+<section class="row justify-content-center g-3">
     <div class="col-6">
         <div class="card mb-5">
             {{#with contributions}}
-            <div class="card-header h3">{{title}}</div>
-            <div class="card-body pt-2">
+            <div class="card-header bg-secondary text-white h3">{{title}}</div>
+            <div class="card-body pt-2 bg-light">
                 <section>
-                    <div class="mb-2">
+                    <div class="mb-2 text-secondary">
                         <i>
                             <time>{{year}}</time>
                         </i>

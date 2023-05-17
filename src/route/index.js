@@ -42,9 +42,7 @@ router.get('/', function (req, res) {
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('index', {
     layout: 'index',
-    page: {
-      title: 'Resume | Home page',
-    },
+    title: 'Home page',
   })
   //                  ↑↑ сюди вводимо JSON дані
 })
@@ -281,7 +279,7 @@ router.get('/bio', function (req, res) {
   res.render('bio', {
     layout: 'basic',
     page: {
-      title: 'Resume | Albert Einstein',
+      title: 'Bio',
     },
     name: 'Albert Einstein',
     birthdate: 'March 14, 1879',

@@ -1,13 +1,27 @@
-<main class="mt-5">
+<main class="mt-4 mb-5">
     <section>
-        <h1 class="h3">Pages list</h1>
+        <h1 class="mb-3">Pages list</h1>
         <p>
             This is the list of my "Resume" project pages, you can visit them by clicking on buttons.<br />
             Technologies used: HTML, Handlebars, Bootstrap and CSS.
         </p>
     </section>
 
-    <section>
-        <a href="#" class="btn btn-primary py-1">Test</a>
+    <section class="container">
+        <div class="row">
+            <div class="col-4">
+                <div class="h2 mb-3">Shop:</div>
+                <div class="container">
+                    <div class="row g-3">
+                        {{> index-btn link='shophome' color='success' name='Shop | Home'}}
+                        {{> index-btn link='shoporder' color='success' name='Shop | Order'}}
+                        {{> index-btn link='shopcart' color='success' name='Shop | Cart'}}
+                        {{> index-btn link='shopprofile' color='success' name='Shop | Profile'}}
+                        {{> index-btn link='shopreview' color='success' name='Shop | Review'}}
+                        {{> index-btn link='shopcatalog' color='success' name='Shop | Catalog'}}
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 </main>

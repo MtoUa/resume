@@ -1,5 +1,5 @@
 <header>
-    <h1>{{make}} {{model}} {{year}} ({{color}})</h1>
+    <h1 class="card-title display-3 mb-3">{{make}} {{model}} {{year}} ({{color}})</h1>
 
     {{> title data='Specifications:' big=true}}
 </header>
@@ -12,17 +12,19 @@
 
     <div>
         {{#with interior}}
-        {{> title data='Interior:'}}
+        <div class="card-title display-6 mb-3">Interior</div>
         <section>
-            <h4>Seats:</h4>
-            {{#with seats}}
-            <ul>
-                {{> li-el var='Material:' val=material}}
-                {{> li-el var='Color:' val=color}}
-                {{> li-if var='Seat heating:' val=heated}}
-                {{> li-if var='Seat ventilation:' val=ventilated}}
-            </ul>
-            {{/with}}
+            <div class="card">
+                <div class="card-header h4">Seats:</div>
+                {{#with seats}}
+                <ul class="card-body py-2 pb-0 list-group list-group-flush">
+                    {{> li-el var='Material:' val=material}}
+                    {{> li-el var='Color:' val=color}}
+                    {{> li-if var='Seat heating:' val=heated}}
+                    {{> li-if var='Seat ventilation:' val=ventilated}}
+                </ul>
+                {{/with}}
+                </d>
         </section>
         <section>
             <h4>Dashboard:</h4>
