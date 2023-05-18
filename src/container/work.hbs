@@ -1,82 +1,70 @@
 <main>
     {{#with main}}
-    <section>
-        <div class="mb-3">
-            {{> title big=true data='Work history'}}
-        </div>
-        <ul>
-            {{#each works}}
-            <li class="mb-4">
-                <section>
-                    <div>
-                        {{position}}
-                    </div>
-                    <div>
-                        <time>
-                            {{duration.from}}
-                            –
-                            {{#if duration.to}}
-                            {{duration.to}}
-                            {{else}}
-                            Now
-                            {{/if}}
-                        </time>
-                    </div>
-                    <div class="my-2">
+    <h1 class="mb-3 display-3">Work history</h1>
+    <div class="card">
+        {{#each works}}
+        <div class="card-body">
+            <div class="card-title">
+                <div class="mb-1">
+                    <span class="h1">{{position}}</span>
+                    <span class="h4 mx-1">in</span>
+                    <span class="display-6">
                         {{#with company}}
                         {{#if url}}
                         {{> link href=url text=name blank=true noLine=true}}
                         {{else}}
-                        <b>{{name}}</b>
+                        {{name}}
                         {{/if}}
                         {{/with}}
-                    </div>
-                </section>
+                    </span>
+                </div>
+                <div>
+                    <time>
+                        ({{duration.from}} –
+                        {{#if duration.to}}
+                        {{duration.to}})
+                        {{else}}
+                        Now)
+                        {{/if}}
+                    </time>
+                </div>
+                <div class="h4 my-3">Projects ({{projectAmount}}):</div>
+            </div>
 
-                <section>
-                    <div>
-                        <strong>Projects({{projectAmount}}):</strong>
+            <div class="row g-3">
+                {{#each projects}}
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-header pt-0">
+                            <div>
+                                <a href="{{url}}" class="btn btn-link btn-lg ps-0" target="_blank">{{name}}</a>
+                            </div>
+                            <p class="mb-1">{{about}}</p>
+                        </div>
+                        <div class="card-body py-2">
+                            <div>
+                                <div class="h5">Project stacks({{stackAmount}}):</div>
+                                <ul class="ms-2">
+                                    {{#each stacks}}
+                                    <li class="">{{name}}</li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                            <div>
+                                <div class="h5">Project awards({{awardAmount}}):</div>
+                                <ul>
+                                    {{#each awards}}
+                                    <li>{{name}}</li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <ul>
-                        {{#each projects}}
-                        <li>
-                            <div class="mt-1">
-                                {{> link href=url text=name blank=true noLine=true}}
-                            </div>
-                            <p class="mb-2">{{about}}</p>
-                            <div class="ms-5">
-                                <div class="mb-1">
-                                    <div>
-                                        <em>Project stacks({{stackAmount}}):</em>
-                                    </div>
-                                    <div>
-                                        <ul>
-                                            {{#each stacks}}
-                                            <li>{{name}}</li>
-                                            {{/each}}
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="mb-1">
-                                    <div>
-                                        <em>Project awards({{awardAmount}}):</em>
-                                    </div>
-                                    <div>
-                                        <ul>
-                                            {{#each awards}}
-                                            <li>{{name}}</li>
-                                            {{/each}}
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        {{/each}}
-                    </ul>
-                </section>
-            </li>
-            {{/each}}
-        </ul>
-    </section>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
     {{/with}}
 </main>

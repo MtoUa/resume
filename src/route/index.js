@@ -227,7 +227,7 @@ router.get('/work', function (req, res) {
         {
           position: 'Junior Fullstack Developer',
           company: {
-            name: 'Company1',
+            name: 'Company',
             url: null,
           },
           duration: {
