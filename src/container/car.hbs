@@ -1,202 +1,232 @@
-<header>
-    <h1 class="card-title display-3 mb-3">{{make}} {{model}} {{year}} ({{color}})</h1>
-
-    {{> title data='Specifications:' big=true}}
-</header>
-
-
 <main>
-    {{#with features}}
+    <div class="card">
+        <h1 class="card-header display-3 pb-3">{{make}} {{model}} {{year}} ({{color}})</h1>
+        <div class="card-body pt-2">
+            {{#with features}}
+                <h2 class="card-title h1 ms-1 mb-4 mt-2">Specifications</h2>
+                <div class="card mb-3">
+                    <div class="card-body pt-1">
+                        <div class="card-title display-6 mb-3">Interior</div>
+                        <div class="row g-3">
+                            {{#with interior}}
+                                <div class="col-auto">
+                                    <div class="card h-100">
+                                        <div class="card-header h4">Seats</div>
+                                        <ul class="card-body list-group list-group-flush py-0 pe-0">
+                                            {{#with seats}}
+                                                {{> li-el var='Material:' val=material}}
+                                                {{> li-el var='Color:' val=color}}
+                                                {{> li-if var='Seat heating:' val=heated}}
+                                                {{> li-if var='Seat ventilation:' val=ventilated}}
+                                            {{/with}}
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="card h-100">
+                                        <div class="card-header h4">Dashboard</div>
+                                        <ul class="card-body list-group list-group-flush py-0 pe-0">
+                                            {{#with dashboard}}
+                                                {{> li-el var='Material:' val=material}}
+                                                {{> li-el var='Color:' val=color}}
+                                                <li class="list-group-item">
+                                                    <div class="mb-1">
+                                                        <b>Display:</b>
+                                                    </div>
+                                                    <small>
+                                                        <ul class="mb-1">
+                                                            {{#with display}}
+                                                                {{> li-el var='Type:' val=type dot=true}}
+                                                                {{> li-el var='Size (inches):' val=size dot=true}}
+                                                                {{> li-el var='Resolution (pixels):' val=resolution dot=true}}
+                                                                {{> li-if var='Tochscreen:' val=touchscreen dot=true}}
+                                                            {{/with}}
+                                                        </ul>
+                                                    </small>
+                                                </li>
+                                            {{/with}}
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="card h-100">
+                                        <div class="card-header h4">Audio</div>
+                                        {{#with audio}}
+                                            <ul class="card-body list-group list-group-flush py-0 pe-0">
+                                                {{> li-el var='Brand:' val=system}}
+                                                {{> li-el var='Number of speakers:' val=speakers}}
+                                                {{> li-if var='Subwoofer:' val=subwoofer}}
+                                                {{> li-if var='Bluetooth:' val=bluetooth}}
+                                                {{> li-if var='USB:' val=USB}}
+                                            </ul>
+                                        {{/with}}
+                                    </div>
+                                </div>
+                            {{/with}}
+                        </div>
+                    </div>
+                </div>
 
-    <hr />
+                <div class="card mb-3">
+                    <div class="card-body pt-1">
+                        <div class="card-title display-6 mb-3">Exterior</div>
+                        <div class="row g-3">
+                            {{#with exterior}}
+                                <div class="col-auto">
+                                    <div class="card h-100">
+                                        <div class="card-header h4">Wheels</div>
+                                        <ul class="card-body list-group list-group-flush py-0 pe-0">
+                                            {{#with wheels}}
+                                                {{> li-el var='Size (inches):' val=size}}
+                                                {{> li-el var='Type:' val=type}}
+                                                {{> li-el var='Color:' val=color}}
+                                            {{/with}}
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="card h-100">
+                                        <div class="card-header h4">Headlights</div>
+                                        <ul class="card-body list-group list-group-flush py-0 pe-0">
+                                            {{#with headlights}}
+                                                {{> li-el var='Type:' val=type}}
+                                                {{> li-el var='Brightness:' val=brightness}}
+                                                {{> li-if var='Automatic:' val=type}}
+                                            {{/with}}
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="card h-100">
+                                        <div class="card-header h4">Sunroof</div>
+                                        {{#with sunroof}}
+                                            <ul class="card-body list-group list-group-flush py-0 pe-0">
+                                                {{> li-el var='Type:' val=type}}
+                                                {{> li-el var='Size:' val=size}}
+                                                {{> li-if var='Automatic:' val=type}}
+                                            </ul>
+                                        {{/with}}
+                                    </div>
+                                </div>
+                            {{/with}}
+                        </div>
+                    </div>
+                </div>
 
-    <div>
-        {{#with interior}}
-        <div class="card-title display-6 mb-3">Interior</div>
-        <section>
-            <div class="card">
-                <div class="card-header h4">Seats:</div>
-                {{#with seats}}
-                <ul class="card-body py-2 pb-0 list-group list-group-flush">
-                    {{> li-el var='Material:' val=material}}
-                    {{> li-el var='Color:' val=color}}
-                    {{> li-if var='Seat heating:' val=heated}}
-                    {{> li-if var='Seat ventilation:' val=ventilated}}
-                </ul>
+                <div class="card mb-3">
+                    <div class="card-body pt-1">
+                        <div class="card-title display-6 mb-3">Safety</div>
+                        <div class="row g-3">
+                            {{#with safety}}
+                                <div class="col-auto">
+                                    <div class="card h-100">
+                                        <div class="card-header h4">Airbags</div>
+                                        <ul class="card-body list-group list-group-flush py-0 pe-0">
+                                            {{#with airbags}}
+                                                {{> li-el var='Front:' val=front}}
+                                                {{> li-el var='Side:' val=side}}
+                                                {{> li-el var='Knee:' val=knee}}
+                                                {{> li-el var='Rear:' val=rear}}
+                                            {{/with}}
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="card h-100">
+                                        <div class="card-header h4">Assistance</div>
+                                        <ul class="card-body list-group list-group-flush py-0 pe-0">
+                                            {{#with assistance}}
+                                                {{> li-if var='Blind-spot monitoring:' val=blind_spot_monitoring}}
+                                                {{> li-if var='Rear cross traffic alert:' val=rear_cross_traffic_alert}}
+                                                {{> li-if var='Lane departure warning:' val=lane_departure_warning}}
+                                                {{> li-if var='Adaptive cruise control:' val=adaptive_cruise_control}}
+                                                {{> li-if var='Collision warning:' val=collision_warning}}
+                                            {{/with}}
+                                        </ul>
+                                    </div>
+                                </div>
+                            {{/with}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-auto">
+                        <div class="card mb-3">
+                            <div class="card-body pt-1">
+                                <div class="card-title display-6 mb-3">Engine</div>
+                                <div class="col-auto">
+                                    <div class="card h-100">
+                                        <ul class="card-body list-group list-group-flush py-0 pe-0">
+                                            {{#with ../engine}}
+                                                {{> li-el var='Type:' val=type}}
+                                                {{> li-el var='Displacement (litres):' val=displacement}}
+                                                {{> li-el var='Horsepower:' val=horsepower}}
+                                                {{> li-el var='Torque (pound-feet):' val=torque}}
+                                                <li class="list-group-item">
+                                                    <div class="mb-1">
+                                                        <b>Transmission:</b>
+                                                    </div>
+                                                    <small>
+                                                        <ul class="mb-1">
+                                                            {{#with transmission}}
+                                                                {{> li-el var='Type:' val=type dot=true}}
+                                                                {{> li-el var='Gears number:' val=gears dot=true}}
+                                                            {{/with}}
+                                                        </ul>
+                                                    </small>
+                                                </li>
+                                            {{/with}}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="card mb-3">
+                            <div class="card-body pt-1">
+                                <div class="card-title display-6 mb-3">Fuel economy</div>
+                                <div class="col-auto">
+                                    <div class="card h-100">
+                                        <ul class="card-body list-group list-group-flush py-0 pe-0">
+                                            {{#with ../fuel_economy}}
+                                                {{> li-el var='In a city:' val=city unit='m/g'}}
+                                                {{> li-el var='On a highway:' val=highway unit='m/g'}}
+                                                {{> li-el var='Combined:' val=combined unit='m/g'}}
+                                            {{/with}}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{/with}}
+        </div>
+
+        <div class="card-footer">
+            {{> title data='Price ($):'}}
+            <section>
+                {{#with price}}
+                    <ul>
+                        {{> li-el var='Base:' val=base}}
+                        {{> li-el var='Destination:' val=destination}}
+                        <li>
+                            <b>Options:</b>
+                            <ul>
+                                {{#with options}}
+                                    {{> li-el var='Navigation:' val=navigation}}
+                                    {{> li-el var='Moonroof:' val=moonroof}}
+                                    {{> li-el var='Premiem paint:' val=premium_paint}}
+                                {{/with}}
+                            </ul>
+                        </li>
+                        <br />
+                        {{> li-el var='Total:' val=total b=true}}
+                    </ul>
                 {{/with}}
-                </d>
-        </section>
-        <section>
-            <h4>Dashboard:</h4>
-            {{#with dashboard}}
-            <ul>
-                {{> li-el var='Material:' val=material}}
-                {{> li-el var='Color:' val=color}}
-                <li>
-                    <b>Display:</b>
-                    <ul>
-                        {{#with display}}
-                        {{> li-el var='Type:' val=type}}
-                        {{> li-el var='Size (inches):' val=size}}
-                        {{> li-el var='Resolution (pixels):' val=resolution}}
-                        {{> li-if var='Tochscreen:' val=touchscreen}}
-                        {{/with}}
-                    </ul>
-                </li>
-            </ul>
-            {{/with}}
-        </section>
-        <section>
-            <h4>Audio:</h4>
-            {{#with audio}}
-            <ul>
-                {{> li-el var='Brand:' val=system}}
-                {{> li-el var='Speakers of number:' val=speakers}}
-                {{> li-if var='Subwoofer:' val=subwoofer}}
-                {{> li-if var='Bluetooth:' val=bluetooth}}
-                {{> li-if var='USB:' val=USB}}
-            </ul>
-            {{/with}}
-        </section>
-        {{/with}}
+            </section>
+        </div>
     </div>
-
-    <hr />
-
-    <div>
-        {{#with exterior}}
-        {{> title data='Exterior:'}}
-        <section>
-            <h4>Wheels:</h4>
-            {{#with wheels}}
-            <ul>
-                {{> li-el var='Size (inches):' val=size}}
-                {{> li-el var='Type:' val=type}}
-                {{> li-el var='Color:' val=color}}
-            </ul>
-            {{/with}}
-        </section>
-        <section>
-            <h4>Headlights:</h4>
-            {{#with headlights}}
-            <ul>
-                {{> li-el var='Type:' val=type}}
-                {{> li-el var='Brightness:' val=brightness}}
-                {{> li-if var='Automatic:' val=type}}
-            </ul>
-            {{/with}}
-        </section>
-        <section>
-            <h4>Sunroof:</h4>
-            {{#with sunroof}}
-            <ul>
-                {{> li-el var='Type:' val=type}}
-                {{> li-el var='Size:' val=size}}
-                {{> li-if var='Automatic:' val=type}}
-            </ul>
-            {{/with}}
-        </section>
-        {{/with}}
-    </div>
-
-    <hr />
-
-    <div>
-        {{#with safety}}
-        {{> title data='Safety:'}}
-        <section>
-            <h4>Airbags:</h4>
-            {{#with airbags}}
-            <ul>
-                {{> li-el var='Front:' val=front}}
-                {{> li-el var='Side:' val=side}}
-                {{> li-el var='Knee:' val=knee}}
-                {{> li-el var='Rear:' val=rear}}
-            </ul>
-            {{/with}}
-        </section>
-        <section>
-            <h4>Assistance:</h4>
-            {{#with assistance}}
-            <ul>
-                {{> li-if var='Blind-spot monitoring:' val=blind_spot_monitoring}}
-                {{> li-if var='Rear cross traffic alert:' val=rear_cross_traffic_alert}}
-                {{> li-if var='Lane departure warning:' val=lane_departure_warning}}
-                {{> li-if var='Adaptive cruise control:' val=adaptive_cruise_control}}
-                {{> li-if var='Collision warning:' val=collision_warning}}
-            </ul>
-            {{/with}}
-        </section>
-        {{/with}}
-    </div>
-
-    {{/with}}
-
-    <hr />
-
-    <div>
-        {{> title data='Engine:'}}
-        <section>
-            {{#with engine}}
-            <ul>
-                {{> li-el var='Type:' val=type}}
-                {{> li-el var='Displacement (litres):' val=displacement}}
-                {{> li-el var='Horsepower:' val=horsepower}}
-                {{> li-el var='Torque (pound-feet):' val=torque}}
-                <li>
-                    <b>Transmission:</b>
-                    <ul>
-                        {{#with transmission}}
-                        {{> li-el var='Type:' val=type}}
-                        {{> li-el var='Gears number:' val=gears}}
-                        {{/with}}
-                    </ul>
-                </li>
-            </ul>
-            {{/with}}
-        </section>
-    </div>
-
-    <hr />
-
-    <div>
-        {{> title data='Fuel economy (miles/gallon):'}}
-        <section>
-            {{#with fuel_economy}}
-            <ul>
-                {{> li-el var='In a city:' val=city}}
-                {{> li-el var='On a highway:' val=highway}}
-                {{> li-el var='Combined:' val=combined}}
-            </ul>
-            {{/with}}
-        </section>
-    </div>
-
-    <hr />
-
 </main>
-
-<footer>
-    {{> title data='Price ($):'}}
-    <section>
-        {{#with price}}
-        <ul>
-            {{> li-el var='Base:' val=base}}
-            {{> li-el var='Destination:' val=destination}}
-            <li>
-                <b>Options:</b>
-                <ul>
-                    {{#with options}}
-                    {{> li-el var='Navigation:' val=navigation}}
-                    {{> li-el var='Moonroof:' val=moonroof}}
-                    {{> li-el var='Premiem paint:' val=premium_paint}}
-                    {{/with}}
-                </ul>
-            </li>
-            <br />
-            {{> li-el var='Total:' val=total b=true}}
-        </ul>
-        {{/with}}
-    </section>
-    </div>
-</footer>

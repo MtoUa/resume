@@ -1298,7 +1298,7 @@ router.get('/bootstrap', function (req, res) {
   res.render('bootstrap', {
     layout: 'basic',
     page: {
-      title: 'Bootstrap',
+      title: 'List',
     },
   })
   //                  ↑↑ сюди вводимо JSON дані

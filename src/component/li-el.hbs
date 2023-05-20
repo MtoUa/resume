@@ -1,10 +1,4 @@
-<li class="list-group-item">
-    <b>{{var}}</b>
-    {{#unless b}}
-    {{val}}
-    {{else}}
-    <u>
-        <b>{{val}}</b>
-    </u>
-    {{/unless}}
-</li>
+<li{{#unless dot}} class="list-group-item" {{/unless}}>
+    <span class="h6">{{var}}</span>
+    {{val}}{{#if unit}} {{unit}}{{/if}}
+    </li>

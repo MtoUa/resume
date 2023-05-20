@@ -35,30 +35,30 @@
                 {{#each projects}}
                 <div class="col-3">
                     <div class="card">
-                        <div class="card-header pt-0">
-                            <div>
-                                <a href="{{url}}" class="btn btn-link btn-lg ps-0" target="_blank">{{name}}</a>
+                        <a href="{{url}}" target="_blank" class="btn p-0 text-start">
+                            <div class="card-header bg-dark-subtle text-black">
+                                <div class="h5 ">{{name}}</div>
+                                <p class="mb-1">{{about}}</p>
                             </div>
-                            <p class="mb-1">{{about}}</p>
-                        </div>
-                        <div class="card-body py-2">
-                            <div>
-                                <div class="h5">Project stacks({{stackAmount}}):</div>
-                                <ul class="ms-2">
-                                    {{#each stacks}}
-                                    <li class="">{{name}}</li>
-                                    {{/each}}
-                                </ul>
+                            <div class="card-body bg-light text-black pb-1">
+                                <div>
+                                    <div class="h5">Project stacks ({{stackAmount}}):</div>
+                                    <ul class="ms-1">
+                                        {{#each stacks}}
+                                        <li class="">{{name}}</li>
+                                        {{/each}}
+                                    </ul>
+                                </div>
+                                <div>
+                                    <div class="h5">Project awards ({{awardAmount}}):</div>
+                                    <ul class="ms-1">
+                                        {{#each awards}}
+                                        <li>{{name}}</li>
+                                        {{/each}}
+                                    </ul>
+                                </div>
                             </div>
-                            <div>
-                                <div class="h5">Project awards({{awardAmount}}):</div>
-                                <ul>
-                                    {{#each awards}}
-                                    <li>{{name}}</li>
-                                    {{/each}}
-                                </ul>
-                            </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 {{/each}}
