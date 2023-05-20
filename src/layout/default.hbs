@@ -18,32 +18,26 @@
 </head>
 
 <body class="p-5">
-	{{#with header}}
 	<header>
-		<div class="mb-2">
-			{{#with name}}
-			<h1>{{firstname}} {{lastname}}</h1>
-			{{/with}}
-		</div>
-		<div class="mb-2">
-			<b>{{position}}</b>
-		</div>
-		<div class="mb-2">
-			<em>{{salary}}</em>
-		</div>
-		<div class="mb-2">
-			<address>
-				{{address}}
-			</address>
-		</div>
+		{{#with header}}
+			<h1 class="display-4">{{name.firstname}} {{name.lastname}}</h1>
+			<div class="h5 mb-2">{{position}}</div>
+			<div class="mb-2">
+				<em>{{salary}}</em>
+			</div>
+			<div>
+				<address>
+					{{address}}
+				</address>
+			</div>
+		{{/with}}
 	</header>
-	{{/with}}
 
-	<hr class="mt-4 mb-3" />
+	<hr class="mt-0 mb-3" />
 
-	<div class="mb-4">
-		{{> nav}}
-	</div>
+	{{> nav}}
+
+	<hr class="mb-4" />
 
 	{{! ↓ ця кострукція показує куди шаблонізатору треба вставляти код з container файлу --}}
 	{{{body}}}

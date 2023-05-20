@@ -791,7 +791,7 @@ router.get('/car', function (req, res) {
   res.render('car', {
     layout: 'basic',
     page: {
-      title: 'Resume | Car',
+      title: 'Car',
     },
     make: 'Toyota',
     model: 'Camry',
@@ -990,7 +990,7 @@ router.get('/facebook', function (req, res) {
   res.render('facebook', {
     layout: 'basic',
     page: {
-      title: 'Resume | Facebook',
+      title: 'Facebook',
     },
     name: 'Facebook',
     users: [

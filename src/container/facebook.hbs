@@ -1,98 +1,81 @@
-<header>
-    <h1>{{name}}</h1>
-</header>
-
 <main>
+    <h1 class="display-3 fw-bold">{{name}}</h1>
     {{#each users}}
-
-    <hr />
-
-    {{> title data='User:' big=true}}
-
-    <section>
-        <ul>
-            {{> user-info main-user=true}}
-            {{#if friends}}
-            <li>
-                <b>Friends:</b>
-                <br />
-                {{#each friends}}
-                <ul style="margin-left: 32px;">
-                    {{> user-info}}
-                    {{#if mutual_friends}}
-                    <li>
-                        <b>Mutual friends:</b>
-                        <br />
-                        {{#each mutual_friends}}
-                        <ul style="margin-left: 88px;">
-                            {{> user-info}}
-                            {{#if mutual_friends}}
+        <div class="card border-5 rounded-5 border-dark mb-3">
+            <div class="card-body">
+                <section>
+                    <div class="display-6">User</div>
+                    <ul class="ms-5">
+                        {{> user-info main-user=true}}
+                        {{#if friends}}
                             <li>
-                                <b>Mutual friends:</b>
-                                <br />
-                                {{#each mutual_friends}}
-                                <ul style="margin-left: 88px;">
-                                    {{> user-info}}
-                                </ul>
-                                <br />
+                                <div class="h5">Friends:</div>
+                                {{#each friends}}
+                                    <ul class="ms-5 mt-3">
+                                        {{> user-info}}
+                                        {{#if mutual_friends}}
+                                            <li>
+                                                <div class="h5">Mutual friends:</div>
+                                                {{#each mutual_friends}}
+                                                    <ul class="ms-5 mt-3">
+                                                        {{> user-info}}
+                                                        {{#if mutual_friends}}
+                                                            <li>
+                                                                <div class="h5">Mutual friends:</div>
+                                                                {{#each mutual_friends}}
+                                                                    <ul class="ms-5 mt-3">
+                                                                        {{> user-info}}
+                                                                    </ul>
+                                                                {{/each}}
+                                                            </li>
+                                                        {{/if}}
+                                                    </ul>
+                                                {{/each}}
+                                            </li>
+                                        {{/if}}
+                                        {{#if groups}}
+                                            <li>
+                                                <div class="h5">Groups:</div>
+                                                {{#each groups}}
+                                                    <ul class="ms-5 mt-3">
+                                                        {{> user-info qm=true}}
+                                                        <li>
+                                                            <b>Members:</b>
+                                                            {{#each members}}
+                                                                <ul class="ms-5 mt-3">
+                                                                    {{> user-info}}
+                                                                </ul>
+                                                            {{/each}}
+                                                        </li>
+                                                    </ul>
+                                                {{/each}}
+                                            </li>
+                                        {{/if}}
+                                    </ul>
                                 {{/each}}
                             </li>
-                            {{/if}}
-                        </ul>
-                        <br />
-                        {{/each}}
-                    </li>
-                    {{/if}}
-
-                    {{#if groups}}
-                    <li>
-                        <b>Groups:</b>
-                        <br />
-                        {{#each groups}}
-                        <ul style="margin-left: 88px;">
-                            {{> user-info qm=true}}
+                        {{/if}}
+                        {{#if groups}}
                             <li>
-                                <b>Members:</b>
-                                <br />
-                                {{#each members}}
-                                <ul style="margin-left: 88px;">
-                                    {{> user-info}}
-                                </ul>
-                                <br />
+                                <div class="h5">Groups:</div>
+                                {{#each groups}}
+                                    <ul class="ms-5 mt-3">
+                                        {{> user-info qm=true}}
+                                        <li>
+                                            <b>Members:</b>
+                                            {{#each members}}
+                                                <ul class="ms-5 mt-3">
+                                                    {{> user-info}}
+                                                </ul>
+                                            {{/each}}
+                                        </li>
+                                    </ul>
                                 {{/each}}
                             </li>
-                        </ul>
-                        {{/each}}
-                    </li>
-                    {{/if}}
-                </ul>
-                <br />
-                {{/each}}
-            </li>
-            {{/if}}
-
-            {{#if groups}}
-            <li>
-                <b>Groups:</b>
-                <br />
-                {{#each groups}}
-                <ul style="margin-left: 32px;">
-                    {{> user-info qm=true}}
-                    <li>
-                        <b>Members:</b>
-                        <br />
-                        {{#each members}}
-                        <ul style="margin-left: 88px;">
-                            {{> user-info}}
-                        </ul>
-                        <br />
-                        {{/each}}
-                    </li>
-                </ul>
-                {{/each}}
-            </li>
-            {{/if}}
-        </ul>
-    </section>
+                        {{/if}}
+                    </ul>
+                </section>
+            </div>
+        </div>
     {{/each}}
 </main>

@@ -1,61 +1,46 @@
 <header>
-    <h1>{{name}}</h1>
-
-
-    <div>
-        <i>
-            Created by
-            {{#with history}}
-            {{founder}} in {{year}}
-            {{/with}}
-        </i>
+    <h1 class="display-3 fw-bold">{{name}}</h1>
+    <div class="fst-italic mb-2">
+        Created by {{history.founder}} in {{history.year}}
     </div>
-
-    <br />
-
     <p>
         {{description}}
     </p>
 </header>
 
-<main>
-    <hr />
-
+<main class="mb-5">
     <h2>About {{name}}:</h2>
-
-    {{> list-js text='Types:' var=types}}
-
+    {{> list-js text='Data types:' var=types}}
     <section>
         {{> title data='Syntax:'}}
 
         {{#with syntax}}
-        <ul>
-            {{> syntax title='Variables' data=variables}}
-            {{> syntax title='Functions' data=functions}}
-            {{> syntax title='Conditionals' data=conditionals}}
-            {{> syntax title='Loops' data=loops}}
-            {{> syntax title='Classes' data=classes}}
-        </ul>
+            <ul>
+                {{> syntax title='Variables' data=variables}}
+                {{> syntax title='Functions' data=functions}}
+                {{> syntax title='Conditionals' data=conditionals}}
+                {{> syntax title='Loops' data=loops}}
+                {{> syntax title='Classes' data=classes}}
+            </ul>
         {{/with}}
     </section>
-
     {{> list-js text='Features:' var=features i=true}}
-
     {{> list-js text='Libraries:' var=libraries}}
-
     {{> list-js text='Tools:' var=tools}}
 
-    <hr />
+    <div class="card border-5 rounded-4 border-dark">
+        <div class="card-body bg-warning-subtle rounded-3 pt-2">
+            <div class="h2 mb-3">Community</div>
+            <div class="row">
+                {{#each community}}
+                    <div class="col">
+                        <div class="h6 text-capitalize mb-2">{{type}}:</div>
+                        <button class="btn btn-warning">
+                            <span class="fw-bold">{{name}}</span>
+                        </button>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
 </main>
-
-<footer>
-    {{> title data='Community:' big=true}}
-
-    <ul>
-        {{#each community}}
-        <li>
-            <i>{{name}}</i> ({{type}});
-        </li>
-        {{/each}}
-    </ul>
-</footer>
