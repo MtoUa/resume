@@ -1,21 +1,20 @@
-<section>
-    {{> title data=text}}
-
-    <ul>
-        {{#if i}}
-
-        {{#each var}}
-        <li>
-            <i>{{this}};</i>
-        </li>
-        {{/each}}
-
-        {{else}}
-
-        {{#each var}}
-        <li>{{this}};</li>
-        {{/each}}
-
-        {{/if}}
-    </ul>
-</section>
+<div class="card bg-dark border-5 rounded-4 border-dark h-100">
+    <div class="card-header bg-warning rounded-top-3 pb-1">
+        <h3>{{text}}</h3>
+    </div>
+    <div class="card-body text-light ps-1 pt-2 pb-0">
+        <ul>
+            {{#if i}}
+                {{#each var}}
+                    <li class="mb-1">
+                        <i>{{this}};</i>
+                    </li>
+                {{/each}}
+            {{else}}
+                {{#each var}}
+                    <li class="mb-1">{{this}};</li>
+                {{/each}}
+            {{/if}}
+        </ul>
+    </div>
+</div>

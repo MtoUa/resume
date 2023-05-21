@@ -1,45 +1,70 @@
-<header>
-    <h1 class="display-3 fw-bold">{{name}}</h1>
-    <div class="fst-italic mb-2">
-        Created by {{history.founder}} in {{history.year}}
-    </div>
-    <p>
-        {{description}}
-    </p>
-</header>
-
 <main class="mb-5">
-    <h2>About {{name}}:</h2>
-    {{> list-js text='Data types:' var=types}}
-    <section>
-        {{> title data='Syntax:'}}
-
-        {{#with syntax}}
-            <ul>
-                {{> syntax title='Variables' data=variables}}
-                {{> syntax title='Functions' data=functions}}
-                {{> syntax title='Conditionals' data=conditionals}}
-                {{> syntax title='Loops' data=loops}}
-                {{> syntax title='Classes' data=classes}}
-            </ul>
-        {{/with}}
-    </section>
-    {{> list-js text='Features:' var=features i=true}}
-    {{> list-js text='Libraries:' var=libraries}}
-    {{> list-js text='Tools:' var=tools}}
-
-    <div class="card border-5 rounded-4 border-dark">
-        <div class="card-body bg-warning-subtle rounded-3 pt-2">
-            <div class="h2 mb-3">Community</div>
-            <div class="row">
-                {{#each community}}
-                    <div class="col">
-                        <div class="h6 text-capitalize mb-2">{{type}}:</div>
-                        <button class="btn btn-warning">
-                            <span class="fw-bold">{{name}}</span>
-                        </button>
+    <div class="card bg-warning-subtle border-5 rounded-4 border-dark">
+        <div class="card-header bg-warning rounded-top-3 pt-0">
+            <h1 class="display-3 fw-bold mb-1">{{name}}</h1>
+            <p class="fst-italic mb-2">
+                Created by {{history.founder}} in {{history.year}}
+            </p>
+        </div>
+        <div class="card-body rounded-3">
+            <div class="card-title mb-3">
+                <h2 class="h1">About {{name}}:</h2>
+                <p class="fs-6">
+                    {{description}}
+                </p>
+            </div>
+            <div class="row justify-content-center g-3">
+                <div class="col">
+                    {{> list-js text='Data types' var=types}}
+                </div>
+                <div class="col-auto">
+                    <div class="card bg-dark border-5 rounded-4 border-dark h-100">
+                        <div class="card-header bg-warning rounded-top-3 pb-1">
+                            <h3>Syntax</h3>
+                        </div>
+                        <div class="card-body text-light ps-1 pt-2 pb-0">
+                            {{#with syntax}}
+                                <ul>
+                                    {{> syntax title='Variables' data=variables}}
+                                    {{> syntax title='Functions' data=functions}}
+                                    {{> syntax title='Conditionals' data=conditionals}}
+                                    {{> syntax title='Loops' data=loops}}
+                                    {{> syntax title='Classes' data=classes}}
+                                </ul>
+                            {{/with}}
+                        </div>
                     </div>
-                {{/each}}
+                </div>
+
+
+                <div class="col">
+                    {{> list-js text='Tools' var=tools}}
+                </div>
+                <div class="col">
+                    {{> list-js text='Libraries' var=libraries}}
+                </div>
+                <div class="col-9">
+                    {{> list-js text='Features' var=features i=true}}
+                </div>
+                <div class="col-12">
+                    <div class="card bg-dark border-5 rounded-4 border-dark">
+                        <div class="card-header bg-warning rounded-top-3 pb-1">
+                            <h3>Community</h3>
+                        </div>
+                        <div class="card-body rounded-bottom-3">
+                            <div class="row">
+                                {{#each community}}
+                                    <div class="col">
+                                        <div class="h6 text-capitalize text-light mb-2">{{type}}:</div>
+                                        <button class="btn btn-warning">
+                                            <span class="fw-bold">{{name}}</span>
+                                        </button>
+                                    </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
