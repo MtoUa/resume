@@ -1,47 +1,47 @@
 <div class="col-6">
-    <div class="card">
+    <div class="card h-100">
         <img class="card-img-top" src="{{img}}" alt="{{name}}">
         <div class="card-body pt-2 pb-1">
             <section class="mb-3">
                 <div class="mb-3">
                     {{#if isHot}}
-                    <div class="badge text-bg-warning text-light text-uppercase rounded-pill px-2">Hot!</div>
+                        <div class="badge text-bg-warning text-light text-uppercase rounded-pill px-2">Hot!</div>
                     {{/if}}
                     {{#if isNew}}
-                    <div class="badge text-bg-primary rounded-pill px-2">Нове</div>
+                        <div class="badge text-bg-primary rounded-pill px-2">Нове</div>
                     {{/if}}
                 </div>
                 <div class="mb-2">
                     {{#if isFast}}
-                    <div class="badge text-bg-success text-light p-2">Швидка доставка</div>
+                        <div class="badge text-bg-success text-light p-2">Швидка доставка</div>
                     {{/if}}
                 </div>
                 <div>
                     {{#if isFree}}
-                    <div class="badge text-bg-secondary text-light p-2">Безкоштовна доставка</div>
+                        <div class="badge text-bg-secondary text-light p-2">Безкоштовна доставка</div>
                     {{/if}}
                 </div>
             </section>
             <section>
-                <div class="card-title h5">{{name}}</div>
-                <div class="my-3">{{review.amount}} {{review.text}}</div>
-                <div class="h4">{{price}}</div>
-                <div class="my-3">{{delivery}}</div>
+                <div class="card-title h5 mb-2">{{name}}</div>
+                <div class="mb-2">{{review.amount}} {{review.text}}</div>
+                <div class="h4 mb-2">{{price}}</div>
+                <div class="mb-3">{{delivery}}</div>
             </section>
             <section>
                 {{#each buttons}}
-                <div>
-                    <a href="{{link}}"
-                        class="btn btn-{{#if isPrimary}}primary{{/if}}{{#if isSecondary}}secondary{{/if}} mb-2">{{text}}</a>
-                </div>
+                    <div>
+                        <a href="{{link}}"
+                            class="btn btn-{{#if isPrimary}}primary{{/if}}{{#if isSecondary}}secondary{{/if}} mb-2">{{text}}</a>
+                    </div>
                 {{/each}}
             </section>
             <section>
                 <ul class="mt-2">
                     {{#each characteristics}}
-                    <li class="mb-2">
-                        {{title}}: {{value}}
-                    </li>
+                        <li class="mb-2">
+                            {{title}}: {{value}}
+                        </li>
                     {{/each}}
                 </ul>
             </section>

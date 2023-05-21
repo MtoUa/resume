@@ -1,11 +1,11 @@
 {{#if label}}
-<label class="form-label mb-1">{{label}}</label>
+    <label class="form-label mb-1">{{label}}</label>
 {{/if}}
 <select class="form-select
 {{#if large}}form-select-lg p-4{{/if}}
 {{#if small}}form-select-sm{{/if}}">
     <option disabled selected hidden>{{placeholder}}</option>
     {{#each options}}
-    <option value="{{value}}">{{text}}</option>
+        <option value="{{value}}">{{text}}</option>
     {{/each}}
 </select>
