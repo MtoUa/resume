@@ -707,7 +707,7 @@ router.get('/js', function (req, res) {
   res.render('js', {
     layout: 'basic',
     page: {
-      title: 'Resume | JavaScript',
+      title: 'JavaScript',
     },
     name: 'JavaScript',
     description:
@@ -896,7 +896,7 @@ router.get('/mac', function (req, res) {
   res.render('mac', {
     layout: 'basic',
     page: {
-      title: 'Resume | Apple MacBook Pro',
+      title: 'Apple MacBook Pro',
     },
     name: 'Apple MacBook Pro',
     description: 'The ultimate notebook for power users',

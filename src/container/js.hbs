@@ -14,8 +14,8 @@
                 </p>
             </div>
             <div class="row justify-content-center g-3">
-                <div class="col">
-                    {{> list-js text='Data types' var=types}}
+                <div class="col-auto">
+                    {{> list-js text='Data types' var=types body='bg-dark' header='bg-warning' text-color='text-light'}}
                 </div>
                 <div class="col-auto">
                     <div class="card bg-dark border-5 rounded-4 border-dark h-100">
@@ -35,28 +35,26 @@
                         </div>
                     </div>
                 </div>
-
-
                 <div class="col">
-                    {{> list-js text='Tools' var=tools}}
+                    {{> list-js text='Tools' var=tools body='bg-dark' header='bg-warning' text-color='text-light'}}
                 </div>
                 <div class="col">
-                    {{> list-js text='Libraries' var=libraries}}
+                    {{> list-js text='Libraries' var=libraries body='bg-dark' header='bg-warning' text-color='text-light'}}
                 </div>
                 <div class="col-9">
-                    {{> list-js text='Features' var=features i=true}}
+                    {{> list-js text='Features' var=features i=true body='bg-dark' header='bg-warning' text-color='text-light'}}
                 </div>
                 <div class="col-12">
                     <div class="card bg-dark border-5 rounded-4 border-dark">
                         <div class="card-header bg-warning rounded-top-3 pb-1">
                             <h3>Community</h3>
                         </div>
-                        <div class="card-body rounded-bottom-3">
+                        <div class="card-body rounded-bottom-3 pb-2">
                             <div class="row">
                                 {{#each community}}
                                     <div class="col">
                                         <div class="h6 text-capitalize text-light mb-2">{{type}}:</div>
-                                        <button class="btn btn-warning">
+                                        <button class="btn btn-warning mb-2">
                                             <span class="fw-bold">{{name}}</span>
                                         </button>
                                     </div>

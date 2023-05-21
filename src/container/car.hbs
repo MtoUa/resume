@@ -32,9 +32,7 @@
                                                         {{> li-el var='Material:' val=material}}
                                                         {{> li-el var='Color:' val=color}}
                                                         <li class="list-group-item">
-                                                            <div class="mb-1">
-                                                                <b>Display:</b>
-                                                            </div>
+                                                            <div class="fw-bold mb-1">Display:</div>
                                                             <small>
                                                                 <ul class="mb-1">
                                                                     {{#with display}}
@@ -69,7 +67,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-8">
                         <div class="card h-100">
                             <div class="card-body pt-1">
@@ -117,7 +114,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col">
                         <div class="card h-100">
                             <div class="card-body pt-1">
@@ -136,7 +132,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-8">
                         <div class="card h-100">
                             <div class="card-body pt-1">
@@ -175,7 +170,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col">
                         <div class="card h-100">
                             <div class="card-body pt-1">
@@ -189,9 +183,7 @@
                                                 {{> li-el var='Horsepower:' val=horsepower}}
                                                 {{> li-el var='Torque (pound-feet):' val=torque}}
                                                 <li class="list-group-item">
-                                                    <div class="mb-1">
-                                                        <b>Transmission:</b>
-                                                    </div>
+                                                    <div class="fw-bold mb-1">Transmission:</div>
                                                     <small>
                                                         <ul class="mb-1">
                                                             {{#with transmission}}
@@ -231,16 +223,16 @@
                                     <span class="h6">Destination:</span> ${{destination}}
                                 </div>
                                 <div>
-                                    <div>
-                                        <b>Options:</b>
-                                    </div>
-                                    <ul>
-                                        {{#with options}}
-                                            {{> li-el var='Navigation:' val=navigation $=true dot=true}}
-                                            {{> li-el var='Moonroof:' val=moonroof $=true dot=true}}
-                                            {{> li-el var='Premiem paint:' val=premium_paint $=true dot=true}}
-                                        {{/with}}
-                                    </ul>
+                                    <div class="fw-bold mb-1">Options:</div>
+                                    <small>
+                                        <ul>
+                                            {{#with options}}
+                                                {{> li-el var='Navigation:' val=navigation $=true dot=true}}
+                                                {{> li-el var='Moonroof:' val=moonroof $=true dot=true}}
+                                                {{> li-el var='Premiem paint:' val=premium_paint $=true dot=true}}
+                                            {{/with}}
+                                        </ul>
+                                    </small>
                                 </div>
                             </div>
                         </details>

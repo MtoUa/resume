@@ -1,7 +1,6 @@
 <li class="mb-1">
     <span class="h6">{{title}}:</span>
     {{#each data }}
-        '{{this}}'{{#unless @last}},
-    {{else}};{{/unless}}
+        "{{this}}"{{#unless @last}}, {{/unless}}
     {{/each}}
 </li>
