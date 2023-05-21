@@ -1,23 +1,26 @@
 <div class="card mb-4">
-    <div class="card-body p-2 row gx-3">
-        <img class="col-2" style="border-radius: 15px;" src="{{image}}" alt="{{name}}">
-        <div class="col-4 ms-0 py-2 d-flex flex-column align-items-start justify-content-center">
-            <div class="card-title h5">{{name}}</div>
-            <div>{{description}}</div>
-        </div>
-        <div class="col-2 d-flex flex-column align-items-start justify-content-center">
-            {{#with price}}
-            <div class="mb-2">{{title}}:</div>
-            <span class="h5">{{value}}</span>
-            {{/with}}
-        </div>
-        <div class="col-2 d-flex flex-column align-items-start justify-content-center">{{amount}}</div>
-        <div class="col-1 d-flex flex-column align-items-start justify-content-center my-3">
-            {{#each buttons}}
-            <button class="btn
-            btn-{{#if isPrimary}}primary{{/if}}{{#if isDanger}}outline-danger{{/if}} mb-3">
-                {{text}}</button>
-            {{/each}}
+    <div class="card-body">
+        <div class="row align-items-center justify-content-center gx-4">
+            <img class="col rounded-4" src="{{image}}" alt="{{name}}">
+            <div class="col-4 ms-0 py-2 d-flex flex-column">
+                <div class="card-title h5 mb-1">{{name}}</div>
+                <p>{{description}}</p>
+            </div>
+            <div class="col-2 d-flex flex-column">
+                {{#with price}}
+                    <div class="mb-2">{{title}}:</div>
+                    <span class="h5">{{value}}</span>
+                {{/with}}
+            </div>
+            <div class="col-2">{{amount}}</div>
+            <div class="col d-flex flex-column my-3">
+                {{#each buttons}}
+                    <button
+                        class="btn
+                btn-{{#if isPrimary}}primary{{/if}}{{#if isDanger}}outline-danger{{/if}} {{#unless @last}}mb-3{{/unless}} me-3">
+                        {{text}}</button>
+                {{/each}}
+            </div>
         </div>
     </div>
 </div>

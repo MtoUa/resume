@@ -1,131 +1,136 @@
-{{#with person}}
-<header>
-    <h1>{{name}}</h1>
-
-    <div style="font-size: 21px;">
-        <b>{{age}}, {{gender}}</b>
-    </div>
-
-    <br />
-
-    {{#each education}}
-    <div>
-        <strong>
-            <div>{{degree}} in {{major}},</div>
-            <div>{{university}}, {{graduationYear}}</div>
-        </strong>
-    </div>
-    {{/each}}
-
-    <br />
-
-    {{#with address}}
-    <address>
-        <div>{{street}}</div>
-        <div>{{city}}, {{state}} {{zip}}</div>
-        <div>{{country}}</div>
-    </address>
-    {{/with}}
-</header>
-
-<hr />
-{{#each workExperience}}
 <main>
-    <h2>Work experience:</h2>
-    <ul>
-        <li>
-            <details>
-                <summary style="font-size: 21px;">
-                    <strong>{{company}}</strong>
-                </summary>
-                <small>
-                    <div>Industry: {{industry}}</div>
-                    <div>Foundation year: {{year_founded}}</div>
+    {{#with person}}
+        <section>
+            <h1 class="display-2 mb-0">{{name}}</h1>
+            <p class="h4 my-0">{{age}}, {{gender}}</p>
+            {{#each education}}
+                <p class="fw-bold mt-2 mb-2">
+                    {{degree}} in {{major}},<br />
+                    {{university}}, {{graduationYear}}
+                </p>
+            {{/each}}
 
-                    <br />
+            {{#with address}}
+                <address>
+                    <div>{{street}}</div>
+                    <div>{{city}}, {{state}} {{zip}}</div>
+                    <div>{{country}}</div>
+                </address>
+            {{/with}}
+        </section>
 
-                    {{#each employees}}
-                    <div>{{department}} department:</div>
-                    <div>
-                        <b>{{position}}:</b> {{name}}
-                    </div>
-                    <section>
-                        {{#each projects}}
-                        <div>Projects:</div>
-                        <ul>
-                            <li>
-                                <div>
-                                    <b title="{{description}}">"{{name}}"</b> ({{status}})
-                                    {{#each teams}} by
-                                    <em>{{team_name}}</em>, with:
-                                </div>
-
+        <div class="card">
+            <div class="card-body pb-0">
+                <h2 class="card-title">Work experience</h2>
+                {{#each workExperience}}
+                    <div class="card mb-3">
+                        <div class="card-body pb-0 pt-2 ps-0">
+                            <ul>
+                                <li>
+                                    <details class="card-title mb-1">
+                                        <summary>
+                                            <span class="fs-3">{{company}}</span>
+                                        </summary>
+                                        <small>
+                                            <div>
+                                                <span class="h6">Industry:</span> {{industry}}
+                                            </div>
+                                            <div class="mb-1">
+                                                <span class="h6">Foundation year:</span> {{year_founded}}
+                                            </div>
+                                            {{#each employees}}
+                                                <div class="h6 mb-1">
+                                                    {{department}} department:
+                                                </div>
+                                                <div>
+                                                    <span class="fw-medium">{{position}}:</span> {{name}}
+                                                </div>
+                                                <section>
+                                                    {{#each projects}}
+                                                        <div class="fw-medium">Projects:</div>
+                                                        <ul>
+                                                            <li>
+                                                                <div>
+                                                                    <span title="{{description}}"
+                                                                        class="fw-bold">"{{name}}"</span>
+                                                                    ({{status}})
+                                                                    {{#each teams}} by
+                                                                        <em>{{team_name}}</em>, with:
+                                                                </div>
+                                                                <ul>
+                                                                    <li>
+                                                                        {{#with team_leader}}
+                                                                            <a href="mailto:{{email}}"
+                                                                                target="_blank">{{name}}</a>
+                                                                            as a <span
+                                                                                class="fw-medium">{{title}}</span>
+                                                                        {{/with}}
+                                                                    </li>
+                                                                    {{#each team_members}}
+                                                                        <li>
+                                                                            <div>
+                                                                                <a href="mailto:{{email}}"
+                                                                                    target="_blank">{{name}}</a>
+                                                                                as a <span
+                                                                                    class="fw-medium">{{title}}</span>
+                                                                                ({{#each skills}}{{this}}{{#unless
+                                                                                @last}},
+                                                                                {{/unless}}
+                                                                    {{/each}})
+                        </div>
+                        <details>
+                            <summary>Projects:</summary>
+                            {{#each projects}}
                                 <ul>
                                     <li>
-                                        {{#with team_leader}}
-                                        <a href="mailto:{{email}}" target="_blank">{{name}}</a>
-                                        as a {{title}}
-                                        {{/with}}
-                                    </li>
-                                    {{#each team_members}}
-                                    <li>
                                         <div>
-                                            <a href="mailto:{{email}}" target="_blank">{{name}}</a>
-                                            as a {{title}}
-                                            ({{#each skills}}{{this}}{{#unless @last}}, {{/unless}}{{/each}})
-                                        </div>
-
-                                        <details>
-                                            <summary>Projects:</summary>
-                                            {{#each projects}}
-                                            <ul>
-                                                <li>
-                                                    <div>
-                                                        <b title="{{description}}">"{{name}}"</b>
-                                                        ({{#each technologies}}{{this}}{{#unless @last}},
-                                                        {{/unless}}{{/each}}) with:
-                                                    </div>
-                                                    {{#each team_members}}
-                                                    <ul>
-                                                        <li>
-                                                            <div>{{name}} as a {{title}}</div>
-                                                        </li>
-                                                    </ul>
-                                                    {{/each}}
-                                                </li>
-                                            </ul>
-                                            {{/each}}
-                                        </details>
-                                    </li>
-                                    {{/each}}
-                                </ul>
-                                {{/each}}
+                                            <span title="{{description}}" class="fw-bold">"{{name}}"</span>
+                                            ({{#each technologies}}{{this}}{{#unless
+                                            @last}},
+                                            {{/unless}}
+                            {{/each}}) with:
+                    </div>
+                    {{#each team_members}}
+                        <ul>
+                            <li>
+                                <div>{{name}} as a
+                                    <span class="fw-medium">{{title}}</span>
+                                </div>
                             </li>
                         </ul>
-                        {{/each}}
-                    </section>
                     {{/each}}
+                    </li>
+                    </ul>
+                {{/each}}
+                </details>
+                </li>
+                {{/each}}
+                </ul>
+                {{/each}}
+                </li>
+                </ul>
+                {{/each}}
+                </section>
+                {{/each}}
                 </small>
-            </details>
-
-            <br />
-
-            <div>
-                <b>{{title}}</b>
-                <time>({{startDate}} – {{endDate}})</time>
+                </details>
+                <p class="mb-1">
+                    <span class="h5 fw-bold">{{title}}</span>
+                    <span>
+                        <time>({{startDate}} – {{endDate}})</time>
+                    </span>
+                </p>
+                <p>
+                    {{#each responsibilities}}
+                        {{this}}{{#unless @last}}<br />{{/unless}}
+                    {{/each}}
+                </p>
+                </li>
+                </ul>
             </div>
-
-            <br />
-
-            {{#each responsibilities}}
-            <div>
-                {{this}}
-            </div>
-            {{/each}}
-        </li>
-    </ul>
+        </div>
+        {{/each}}
+        </div>
+        </div>
+    {{/with}}
 </main>
-{{/each}}
-
-<hr />
-{{/with}}

@@ -1,98 +1,95 @@
-{{#with program}}
-{{#with excursion}}
-<header>
-    <h1>{{name}}</h1>
-
-    {{#with location}}
-    <h2>{{city}}, {{country}}</h2>
-    {{/with}}
-
-    <div>
-        <time>
-            <b>{{date}}</b>
-        </time>
-    </div>
-</header>
-
-<main>
-    {{#each program}}
-
-    <hr />
-
-    <h2>
-        {{name}} <small>({{type}}, {{duration}} hours)</small>
-    </h2>
-
-    {{#with details}}
-
-    {{#if museum}}
-    {{#with museum}}
-    {{> loc}}
-    {{/with}}
-    {{/if}}
-
-    {{#if venue}}
-    {{#with venue}}
-    {{> loc}}
-    {{/with}}
-    {{/if}}
-
-    {{/with}}
-
-    <section>
-        {{#with details}}
-
-        {{#if museum}}
-        {{#with museum}}
-        {{> title data='Main exhibits:'}}
-
-        <ul>
-            {{#each exhibits}}
-            <li>
-                {{#if artist}}
-                <b>{{artist}}'s</b>
-                {{/if}}
-                <em title="{{description}}">"{{name}}"</em>
-                {{#if audio_guide}}
-                <small>(include audio guide)</small>
-                {{/if}}
-            </li>
-            <br />
-            {{/each}}
-        </ul>
-
-        {{/with}}
-        {{/if}}
-
-
-        {{#if venue}}
-        {{#with venue}}
-        {{> title data='Performers:'}}
-        {{/with}}
-        {{/if}}
-
-        <ul>
-            {{#each performers}}
-            <li>
-                <b>
-                    {{name}}
-                </b>
-                ({{type}})
-            </li>
-            <br />
-            {{/each}}
-        </ul>
-
-        {{#with guide}}
-        <div>
-            <b>Guide:</b>
-            <i>{{name}}</i>, speaks {{language}}, {{rating}} rating.
+<main class="row">
+    <div class="col-auto">
+        <div class="card">
+            {{#with program}}
+                {{#with excursion}}
+                    <div class="card-header">
+                        <h1 class="display-3">{{name}}</h1>
+                        <div class="fs-4">
+                            {{#with location}}
+                                <span>
+                                    <time>
+                                        {{../date}},
+                                    </time>
+                                </span>
+                                <span>{{city}}, {{country}}</span>
+                            {{/with}}
+                        </div>
+                    </div>
+                    {{#each program}}
+                        <div class="card-body">
+                            <div class="card mb-0">
+                                <div class="card-header pt-1">
+                                    <h2 class="display-6 mb-1">{{name}}</h2>
+                                    <div class="h5 mb-1">
+                                        {{type}}, {{duration}} hours
+                                    </div>
+                                    <div class="fst-italic">
+                                        {{#with details}}
+                                            {{#if museum}}
+                                                {{#with museum}}
+                                                    {{name}},
+                                                    {{#with location}}
+                                                        {{address}}, {{city}}, {{country}}
+                                                    {{/with}}
+                                                {{/with}}
+                                            {{/if}}
+                                            {{#if venue}}
+                                                {{#with venue}}
+                                                    {{name}},
+                                                    {{#with location}}
+                                                        {{address}}, {{city}}, {{country}}
+                                                    {{/with}}
+                                                {{/with}}
+                                            {{/if}}
+                                        {{/with}}
+                                    </div>
+                                </div>
+                                <section class="card-body pt-1 pb-2">
+                                    {{#with details}}
+                                        {{#if museum}}
+                                            {{#with museum}}
+                                                <div class="h4 mb-2">Main exhibits:</div>
+                                                <ul class="ps-3 mb-2">
+                                                    {{#each exhibits}}
+                                                        <li>
+                                                            {{#if artist}}
+                                                                <span class="h6">{{artist}}'s</span>
+                                                            {{/if}}
+                                                            <em title="{{description}}">"{{name}}"</em>
+                                                            {{#if audio_guide}}
+                                                                <small>(include audio guide)</small>
+                                                            {{/if}}
+                                                        </li>
+                                                    {{/each}}
+                                                </ul>
+                                            {{/with}}
+                                        {{/if}}
+                                        {{#if venue}}
+                                            <div class="h4 mb-2">Performers:</div>
+                                            <ul class="ps-3 mb-2">
+                                                {{#each performers}}
+                                                    <li>
+                                                        <span class="h6">{{name}}</span>
+                                                        ({{type}})
+                                                    </li>
+                                                {{/each}}
+                                            </ul>
+                                        {{/if}}
+                                        {{#with guide}}
+                                            <p class="my-0 py-0">
+                                                <span class="h6">Guide:</span>
+                                                <span class="fst-italic">{{name}}</span>, speaks {{language}},
+                                                {{rating}} rating
+                                            </p>
+                                        {{/with}}
+                                    {{/with}}
+                                </section>
+                            </div>
+                        </div>
+                    {{/each}}
+                {{/with}}
+            {{/with}}
         </div>
-        {{/with}}
-        {{/with}}
-    </section>
-
-    {{/each}}
+    </div>
 </main>
-{{/with}}
-{{/with}}
