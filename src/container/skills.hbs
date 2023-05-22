@@ -1,11 +1,11 @@
 <main class="row g-3">
     {{#with main}}
         <section class="col-4">
-            <div class="card">
-                <h2 class="card-header">My skills</h2>
-                <ul class="list-group list-group-flush">
+            <div class="card border-4 rounded-4 border-dark-subtle">
+                <h2 class="card-header border-dark-subtle">My skills</h2>
+                <ul class="list-group list-group-flush rounded-bottom-4">
                     {{#each skills}}
-                        <li class="list-group-item">
+                        <li class="list-group-item border-dark-subtle">
                             <span class="h6">{{name}}</span>
                             {{#if point includeZero=true}} ({{point}}) {{/if}}
                             {{#if isTop}}
@@ -26,11 +26,11 @@
         </section>
 
         <section class="col-4">
-            <div class="card">
-                <h2 class="card-header">My hobbies</h2>
-                <ul class="list-group list-group-flush">
+            <div class="card border-4 rounded-4 border-dark-subtle">
+                <h2 class="card-header border-dark-subtle">My hobbies</h2>
+                <ul class="list-group list-group-flush rounded-bottom-4">
                     {{#each hobbies}}
-                        <li class="list-group-item">
+                        <li class="list-group-item border-dark-subtle">
                             <span class="h6">{{name}}</span>
                             {{#if isMain}}
                                 <span class="badge bg-success rounded-pill align-top">Favourite</span>

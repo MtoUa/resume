@@ -1,26 +1,47 @@
 <main class="mt-4 mb-5">
     <section>
-        <h1 class="mb-3">Pages list</h1>
-        <p>
+        <h1 class="display-3 fw-bold mb-3">Pages list</h1>
+        <p class="fs-5">
             This is the list of my "Resume" project pages, you can visit them by clicking on buttons.<br />
             Technologies used: HTML, Handlebars, Bootstrap and CSS.
         </p>
     </section>
 
-    <section class="container">
-        <div class="row">
-            <div class="col-4">
-                <div class="h2 mb-3">Shop:</div>
-                <div class="container">
-                    <div class="row g-3">
-                        {{> index-btn link='shophome' color='success' name='Shop | Home'}}
-                        {{> index-btn link='shoporder' color='success' name='Shop | Order'}}
-                        {{> index-btn link='shopcart' color='success' name='Shop | Cart'}}
-                        {{> index-btn link='shopprofile' color='success' name='Shop | Profile'}}
-                        {{> index-btn link='shopreview' color='success' name='Shop | Review'}}
-                        {{> index-btn link='shopcatalog' color='success' name='Shop | Catalog'}}
-                    </div>
-                </div>
+    <section class="row">
+        <div class="col-4">
+            <h2 class="h3 mb-3">Resume:</h2>
+            <div class="container row g-3">
+                {{> index-btn col='9' link='summary' color='primary' name='Resume | Summary'}}
+                {{> index-btn col='9' link='education' color='primary' name='Resume | Education'}}
+                {{> index-btn col='9' link='skills' color='primary' name='Resume | Skills'}}
+                {{> index-btn col='9' link='work' color='primary' name='Resume | Work'}}
+            </div>
+        </div>
+        <div class="col-4">
+            <h2 class="h3 mb-3">Shop:</h2>
+            <div class="container row g-3">
+                {{> index-btn col='7' link='shophome' color='success' name='Shop | Home'}}
+                {{> index-btn col='7' link='shoporder' color='success' name='Shop | Order'}}
+                {{> index-btn col='7' link='shopcart' color='success' name='Shop | Cart'}}
+                {{> index-btn col='7' link='shopprofile' color='success' name='Shop | Profile'}}
+                {{> index-btn col='7' link='shopreview' color='success' name='Shop | Review'}}
+                {{> index-btn col='7' link='shopcatalog' color='success' name='Shop | Catalog'}}
+            </div>
+        </div>
+        <div class="col-4">
+            <h2 class="h3 mb-3">Other:</h2>
+            <div class="container row g-3">
+                {{> index-btn col='9' link='bio' color='info' name='Bio'}}
+                {{> index-btn col='9' link='car' color='info' name='Car'}}
+                {{> index-btn col='9' link='facebook' color='info' name='Facebook'}}
+                {{> index-btn col='9' link='js' color='info' name='JavaScript'}}
+                {{> index-btn col='9' link='mac' color='info' name='Apple MacBook Pro'}}
+                {{> index-btn col='9' link='person' color='info' name='Person'}}
+                {{> index-btn col='9' link='program' color='info' name='Program'}}
+                {{> index-btn col='9' link='task21' color='info' name='Task 2.1'}}
+                {{> index-btn col='9' link='task22' color='info' name='Task 2.2'}}
+                {{> index-btn col='9' link='task31' color='info' name='Task 3.1'}}
+                {{> index-btn col='9' link='web' color='info' name='Web languages'}}
             </div>
         </div>
     </section>

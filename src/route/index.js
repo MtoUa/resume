@@ -572,7 +572,7 @@ router.get('/web', function (req, res) {
   res.render('web', {
     layout: 'basic',
     page: {
-      title: 'Resume | Web languages',
+      title: 'Web languages',
     },
     web: {
       languages: [
@@ -1155,7 +1155,7 @@ router.get('/task21', function (req, res) {
   res.render('task21', {
     layout: 'basic',
     page: {
-      title: 'Resume | Task21',
+      title: 'Task 2.1',
     },
     heading: {
       main: {
@@ -1232,7 +1232,7 @@ router.get('/task22', function (req, res) {
   res.render('task22', {
     layout: 'basic',
     page: {
-      title: 'Resume | Task22',
+      title: 'Task 2.2',
     },
     page_header: {
       title: 'InnovaMind',
@@ -1316,7 +1316,7 @@ router.get('/task31', function (req, res) {
   res.render('task31', {
     layout: 'basic',
     page: {
-      title: 'Resume | Task31',
+      title: 'Task 3.1',
     },
     navigation: {
       links: [
