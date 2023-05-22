@@ -380,7 +380,7 @@ router.get('/person', function (req, res) {
   res.render('person', {
     layout: 'basic',
     page: {
-      title: 'Resume | Emma Johnson',
+      title: 'Person',
     },
     person: {
       name: 'Emma Johnson',
@@ -483,7 +483,7 @@ router.get('/program', function (req, res) {
   res.render('program', {
     layout: 'basic',
     page: {
-      title: 'Resume | Cultural Tour',
+      title: 'Program',
     },
     program: {
       excursion: {

@@ -1,4 +1,4 @@
-<main class="row">
+<main class="row g-3">
     <div class="col-auto">
         <div class="card">
             {{#with program}}
@@ -16,9 +16,9 @@
                             {{/with}}
                         </div>
                     </div>
-                    {{#each program}}
-                        <div class="card-body">
-                            <div class="card mb-0">
+                    <div class="card-body pb-0">
+                        {{#each program}}
+                            <div class="card mb-3">
                                 <div class="card-header pt-1">
                                     <h2 class="display-6 mb-1">{{name}}</h2>
                                     <div class="h5 mb-1">
@@ -86,8 +86,8 @@
                                     {{/with}}
                                 </section>
                             </div>
-                        </div>
-                    {{/each}}
+                        {{/each}}
+                    </div>
                 {{/with}}
             {{/with}}
         </div>
