@@ -1,48 +1,48 @@
 <header>
     {{#with header}}
-    <h1 class="mb-3">{{title}}</h1>
-    {{#with button}}
-    <a href="{{link}}" class="btn btn-outline-secondary">{{text}}</a>
-    {{/with}}
+        <h1 class="mb-3">{{title}}</h1>
+        {{#with button}}
+            <a href="{{link}}" class="btn btn-outline-secondary">{{text}}</a>
+        {{/with}}
     {{/with}}
 </header>
 
-<hr class="my-5" />
+<hr class="my-4" />
 
 <main>
     <section>
         {{#each goodsBlock}}
-        {{> cartGoodsItem}}
+            {{> cartGoodsItem}}
         {{/each}}
     </section>
 
-    <hr class="my-5" />
+    <hr class="my-4" />
 
     <section>
         {{#with total}}
-        <h2>{{title}}</h2>
-        <div class="h1">{{amount}}</div>
-        <div class="mb-4">{{delivery}}</div>
-        {{#each buttons}}
-        <div>
-            <a href="{{link}}" class="btn {{#if isOutline}}btn-outline-success{{/if}}
+            <h2>{{title}}</h2>
+            <div class="h1">{{amount}}</div>
+            <div class="mb-3">{{delivery}}</div>
+            {{#each buttons}}
+                <div>
+                    <a href="{{link}}" class="btn {{#if isOutline}}btn-outline-success{{/if}}
                 {{#if isSuccess}}btn-success{{/if}} mb-3">
-                {{text}}</a>
-        </div>
-        {{/each}}
+                        {{text}}</a>
+                </div>
+            {{/each}}
         {{/with}}
     </section>
 
-    <hr class="my-5" />
+    <hr class="my-4" />
 
     <section>
         {{#with goodsOtherBlock}}
-        <h2 class="text-center mb-3">{{title}}</h2>
-        {{> cards}}
+            <h2 class="text-center mb-3">{{title}}</h2>
+            {{> cards}}
         {{/with}}
     </section>
 
-    <hr class="my-5" />
+    <hr class="my-4" />
 
     {{> dark-card}}
 </main>

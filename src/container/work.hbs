@@ -1,82 +1,71 @@
 <main>
     {{#with main}}
-    <section>
-        <div class="mb-3">
-            {{> title big=true data='Work history'}}
-        </div>
-        <ul>
+        <h1 class="mb-3 display-3">Work history</h1>
+        <div class="card border-4 rounded-4 border-dark-subtle">
             {{#each works}}
-            <li class="mb-4">
-                <section>
-                    <div>
-                        {{position}}
+                <div class="card-body">
+                    <div class="card-title">
+                        <div class="mb-1">
+                            <span class="h1">{{position}}</span>
+                            <span class="h4 mx-1">in</span>
+                            <span class="display-6">
+                                {{#with company}}
+                                    {{#if url}}
+                                        {{> link href=url text=name blank=true noLine=true}}
+                                    {{else}}
+                                        {{name}}
+                                    {{/if}}
+                                {{/with}}
+                            </span>
+                        </div>
+                        <div>
+                            <time>
+                                ({{duration.from}} –
+                                {{#if duration.to}}
+                                    {{duration.to}})
+                                {{else}}
+                                    Now)
+                                {{/if}}
+                            </time>
+                        </div>
+                        <div class="h4 my-3">Projects ({{projectAmount}}):</div>
                     </div>
-                    <div>
-                        <time>
-                            {{duration.from}}
-                            –
-                            {{#if duration.to}}
-                            {{duration.to}}
-                            {{else}}
-                            Now
-                            {{/if}}
-                        </time>
-                    </div>
-                    <div class="my-2">
-                        {{#with company}}
-                        {{#if url}}
-                        {{> link href=url text=name blank=true noLine=true}}
-                        {{else}}
-                        <b>{{name}}</b>
-                        {{/if}}
-                        {{/with}}
-                    </div>
-                </section>
 
-                <section>
-                    <div>
-                        <strong>Projects({{projectAmount}}):</strong>
-                    </div>
-                    <ul>
+                    <div class="row g-3">
                         {{#each projects}}
-                        <li>
-                            <div class="mt-1">
-                                {{> link href=url text=name blank=true noLine=true}}
+                            <div class="col-4">
+                                <a href="{{url}}" target="_blank" class="btn p-0 text-start">
+                                    <div class="card border-4 rounded-4 border-secondary">
+                                        <div
+                                            class="card-header rounded-top-3 border-secondary bg-dark-subtle text-black">
+                                            <div class="h5 ">{{name}}</div>
+                                            <p class="mb-1">{{about}}</p>
+                                        </div>
+                                        <div class="card-body rounded-bottom-3 bg-light text-black pb-1">
+                                            <div>
+                                                <div class="h5">Project stacks ({{stackAmount}}):</div>
+                                                <ul class="ms-1">
+                                                    {{#each stacks}}
+                                                        <li class="">{{name}}</li>
+                                                    {{/each}}
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <div class="h5">Project awards ({{awardAmount}}):</div>
+                                                <ul class="ms-1">
+                                                    {{#each awards}}
+                                                        <li>{{name}}</li>
+                                                    {{/each}}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                            <p class="mb-2">{{about}}</p>
-                            <div class="ms-5">
-                                <div class="mb-1">
-                                    <div>
-                                        <em>Project stacks({{stackAmount}}):</em>
-                                    </div>
-                                    <div>
-                                        <ul>
-                                            {{#each stacks}}
-                                            <li>{{name}}</li>
-                                            {{/each}}
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="mb-1">
-                                    <div>
-                                        <em>Project awards({{awardAmount}}):</em>
-                                    </div>
-                                    <div>
-                                        <ul>
-                                            {{#each awards}}
-                                            <li>{{name}}</li>
-                                            {{/each}}
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
                         {{/each}}
-                    </ul>
-                </section>
-            </li>
+                    </div>
+                </div>
             {{/each}}
-        </ul>
-    </section>
+        </div>
     {{/with}}
 </main>

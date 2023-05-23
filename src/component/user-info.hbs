@@ -1,19 +1,19 @@
 {{#if main-user}}
-{{> title data=name}}
+    <h3 class="fw-bold">{{name}}</h3>
 {{else}}
-{{#if qm}}
-<h4>"{{name}}"</h4>
-{{else}}
-<h4>{{name}}</h4>
-{{/if}}
+    {{#if qm}}
+        <h4 class="fw-bold">"{{name}}"</h4>
+    {{else}}
+        <h4 class="fw-bold">{{name}}</h4>
+    {{/if}}
 {{/if}}
 
 {{#if gender}}
-{{> li-el var='Gender:' val=gender}}
-{{> li-el var='Age:' val=age}}
+    {{> li-el var='Gender:' val=gender dot=true}}
+    {{> li-el var='Age:' val=age dot=true}}
 {{else}}
-<div>
-    <i>{{description}}</i>
-</div>
+    <div>
+        <i>{{description}}</i>
+    </div>
 {{/if}}
-{{> li-el var='ID:' val=id}}
+{{> li-el var='ID:' val=id dot=true}}

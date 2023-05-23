@@ -1,89 +1,77 @@
-{{#with web}}
-<header>
-    <h1>Front-end languages kit:</h1>
-</header>
-
 <main>
-    {{#each languages}}
-
-    <hr />
-
-    <h2>{{name}} <small>(actual version is {{version}})</small></h2>
-
-    {{> n-d noname=true}}
-
-    <section>
-
-
-        {{#if elements}}
-        {{> title data='Elements:'}}
-        {{#each elements}}
-        <ul>
-            <li>
-                {{> n-d}}
-                <div style="margin: 16px;">
-                    <i>Attributes:</i>
+    {{#with web}}
+        <header>
+            <h1 class="display-3 mb-3">Front-end languages kit</h1>
+        </header>
+        {{#each languages}}
+            <section class="card border-5 rounded-4 border-dark bg-dark mb-3">
+                <div
+                    class="card-header border rounded-4 border-dark {{#if elements}}bg-danger text-white{{/if}}{{#if properties}}bg-primary text-white{{/if}}{{#if functions}}bg-warning{{/if}} pb-3 mt-3 mx-3">
+                    <h2>{{name}} <small>(actual version is {{version}})</small></h2>
+                    {{> n-d noname=true}}
                 </div>
-                {{#each attributes}}
-                <ul>
-                    <li>
-                        {{> n-d}}
-                    </li>
-                </ul>
-                {{/each}}
-            </li>
-        </ul>
-        {{/each}}
-        {{/if}}
-
-        {{#if properties}}
-        {{> title data='Properties:'}}
-        {{#each properties}}
-        <ul>
-            <li>
-                {{> n-d}}
-                <div style="margin: 16px;">
-                    <i>Values(for example):</i>
-                </div>
-                {{#each values}}
-                <ul>
-                    <li>
-                        <div>
-                            <b>"{{value}}"</b> – {{description}}
+                <div class="card-body">
+                    {{#if elements}}
+                        <h3 class="text-white ms-4 mb-2">Elements</h3>
+                        <div class="card rounded-4 border-dark bg-danger-subtle mx-3">
+                            <ul class="card-body list-group list-group-flush rounded-4 py-0 pe-0">
+                                {{#each elements}}
+                                    <l class="list-group-item bg-danger-subtle border-dark">
+                                        {{> n-d}}
+                                        <div class="h6 mt-2 mb-1">Attributes:</div>
+                                        <ul>
+                                            {{#each attributes}}
+                                                <li>{{> n-d}}</li>
+                                            {{/each}}
+                                        </ul>
+                                    </l>
+                                {{/each}}
+                            </ul>
                         </div>
-                    </li>
-                </ul>
-                {{/each}}
-            </li>
-        </ul>
-        {{/each}}
-        {{/if}}
-
-        {{#if functions}}
-        {{> title data='Functions:'}}
-        {{#each functions}}
-        <ul>
-            <li>
-                {{> n-d}}
-                <div style="margin: 16px;">
-                    <i>Parameters:</i>
-                </div>
-                {{#each parameters}}
-                <ul>
-                    <li>
-                        <div>
-                            <b>"{{name}}"</b> <i>(type: {{type}})</i> – {{description}}
+                    {{/if}}
+                    {{#if properties}}
+                        <h3 class="text-white ms-4 mb-2">Properties</h3>
+                        <div class="card rounded-4 border-dark bg-primary-subtle mx-3">
+                            <ul class="card-body list-group list-group-flush rounded-4 py-0 pe-0">
+                                {{#each properties}}
+                                    <li class="list-group-item bg-primary-subtle border-dark">
+                                        {{> n-d}}
+                                        <div class="h6 mt-2 mb-1">Values (for example):</div>
+                                        <ul>
+                                            {{#each values}}
+                                                <li>{{> n-d name=value}}</li>
+                                            {{/each}}
+                                        </ul>
+                                    </li>
+                                {{/each}}
+                            </ul>
                         </div>
-                    </li>
-                </ul>
-                {{/each}}
-            </li>
-        </ul>
+                    {{/if}}
+                    {{#if functions}}
+                        <h3 class="text-white ms-4 mb-2">Functions</h3>
+                        <div class="card rounded-4 border-dark bg-warning-subtle mx-3">
+                            <ul class="card-body list-group list-group-flush rounded-4 py-0 pe-0">
+                                {{#each functions}}
+                                    <li class="list-group-item bg-warning-subtle border-dark">
+                                        {{> n-d}}
+                                        <div class="h6 mt-2 mb-1">Parameters:</div>
+                                        <ul>
+                                            {{#each parameters}}
+                                                <li>
+                                                    <div>
+                                                        <span class="fw-bold">"{{name}}"</span> <span
+                                                            class="fw-light">(type: {{type}})</span> – {{description}}
+                                                    </div>
+                                                </li>
+                                            {{/each}}
+                                        </ul>
+                                    </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    {{/if}}
+                </div>
+            </section>
         {{/each}}
-        {{/if}}
-    </section>
-
-    {{/each}}
+    {{/with}}
 </main>
-
-{{/with}}

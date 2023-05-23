@@ -1,28 +1,34 @@
-<div>
+<main class="row g-3">
     {{#with main}}
-    <main>
-        <section>
-            {{> title data='My educationss:' big=true}}
-            <ul>
-                {{#each educations}}
-                <li>
-                    {{name}}
-                    {{#unless isEnd}} (in progress) {{/unless}}
-                </li>
-                {{/each}}
-            </ul>
-        </section>
+        <div class="col-auto">
+            <div class="card border-4 rounded-4 border-dark-subtle h-100">
+                <div class="card-header border-dark-subtle h3">My educations</div>
+                <div class="card-body pt-1 pb-0 pe-4">
+                    <ul class="ps-3">
+                        {{#each educations}}
+                            <li>
+                                {{name}}
+                                {{#unless isEnd}} (in progress) {{/unless}}
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-        <section>
-            {{> title data='My certificates:'}}
-            <ul>
-                {{#each certificates}}
-                <li>
-                    {{name}} (id: {{id}})
-                </li>
-                {{/each}}
-            </ul>
-        </section>
-    </main>
+        <div class="col-auto">
+            <div class="card border-4 rounded-4 border-dark-subtle h-100">
+                <div class="card-header border-dark-subtle h3">My certificates</div>
+                <div class="card-body pt-1 pb-0 pe-4">
+                    <ul class="ps-3">
+                        {{#each certificates}}
+                            <li>
+                                {{name}} (id: {{id}})
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
     {{/with}}
-</div>
+</main>

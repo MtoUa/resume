@@ -1,8 +1,8 @@
-<li>
-    <b>{{var}}</b>
+<li{{#unless dot}} class="list-group-item" {{/unless}}>
+    <span class="h6">{{var}}</span>
     {{#if val}}
-    available
+        available
     {{else}}
-    unavailable
+        unavailable
     {{/if}}
-</li>
+    </li>

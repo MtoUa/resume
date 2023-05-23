@@ -1,11 +1,11 @@
-<nav class="card py-2 mb-5">
+<nav class="card py-2 mb-3">
     <div class="nav">
         {{#with navigation}}
-        {{#each links}}
-        <div class="nav-item">
-            <a class="nav-link {{#unless href}}disabled{{/unless}}" href="{{href}}">{{text}}</a>
-        </div>
-        {{/each}}
+            {{#each links}}
+                <div class="nav-item">
+                    <a class="nav-link {{#unless href}}disabled{{/unless}}" href="{{href}}">{{text}}</a>
+                </div>
+            {{/each}}
         {{/with}}
     </div>
 </nav>

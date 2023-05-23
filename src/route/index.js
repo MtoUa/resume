@@ -41,15 +41,8 @@ router.get('/', function (req, res) {
 
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('index', {
-    page: {
-      title: 'Resume | Home page',
-    },
-
-    header,
-
-    main: {},
-
-    footer,
+    layout: 'index',
+    title: 'Home page',
   })
   //                  ↑↑ сюди вводимо JSON дані
 })
@@ -234,7 +227,7 @@ router.get('/work', function (req, res) {
         {
           position: 'Junior Fullstack Developer',
           company: {
-            name: 'Company1',
+            name: 'Company',
             url: null,
           },
           duration: {
@@ -286,7 +279,7 @@ router.get('/bio', function (req, res) {
   res.render('bio', {
     layout: 'basic',
     page: {
-      title: 'Resume | Albert Einstein',
+      title: 'Bio',
     },
     name: 'Albert Einstein',
     birthdate: 'March 14, 1879',
@@ -387,7 +380,7 @@ router.get('/person', function (req, res) {
   res.render('person', {
     layout: 'basic',
     page: {
-      title: 'Resume | Emma Johnson',
+      title: 'Person',
     },
     person: {
       name: 'Emma Johnson',
@@ -490,7 +483,7 @@ router.get('/program', function (req, res) {
   res.render('program', {
     layout: 'basic',
     page: {
-      title: 'Resume | Cultural Tour',
+      title: 'Program',
     },
     program: {
       excursion: {
@@ -579,7 +572,7 @@ router.get('/web', function (req, res) {
   res.render('web', {
     layout: 'basic',
     page: {
-      title: 'Resume | Web languages',
+      title: 'Web languages',
     },
     web: {
       languages: [
@@ -714,7 +707,7 @@ router.get('/js', function (req, res) {
   res.render('js', {
     layout: 'basic',
     page: {
-      title: 'Resume | JavaScript',
+      title: 'JavaScript',
     },
     name: 'JavaScript',
     description:
@@ -798,7 +791,7 @@ router.get('/car', function (req, res) {
   res.render('car', {
     layout: 'basic',
     page: {
-      title: 'Resume | Car',
+      title: 'Car',
     },
     make: 'Toyota',
     model: 'Camry',
@@ -903,7 +896,7 @@ router.get('/mac', function (req, res) {
   res.render('mac', {
     layout: 'basic',
     page: {
-      title: 'Resume | Apple MacBook Pro',
+      title: 'Apple MacBook Pro',
     },
     name: 'Apple MacBook Pro',
     description: 'The ultimate notebook for power users',
@@ -997,7 +990,7 @@ router.get('/facebook', function (req, res) {
   res.render('facebook', {
     layout: 'basic',
     page: {
-      title: 'Resume | Facebook',
+      title: 'Facebook',
     },
     name: 'Facebook',
     users: [
@@ -1162,7 +1155,7 @@ router.get('/task21', function (req, res) {
   res.render('task21', {
     layout: 'basic',
     page: {
-      title: 'Resume | Task21',
+      title: 'Task 2.1',
     },
     heading: {
       main: {
@@ -1239,7 +1232,7 @@ router.get('/task22', function (req, res) {
   res.render('task22', {
     layout: 'basic',
     page: {
-      title: 'Resume | Task22',
+      title: 'Task 2.2',
     },
     page_header: {
       title: 'InnovaMind',
@@ -1305,7 +1298,7 @@ router.get('/bootstrap', function (req, res) {
   res.render('bootstrap', {
     layout: 'basic',
     page: {
-      title: 'Bootstrap',
+      title: 'List',
     },
   })
   //                  ↑↑ сюди вводимо JSON дані
@@ -1323,7 +1316,7 @@ router.get('/task31', function (req, res) {
   res.render('task31', {
     layout: 'basic',
     page: {
-      title: 'Resume | Task31',
+      title: 'Task 3.1',
     },
     navigation: {
       links: [

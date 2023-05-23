@@ -1,143 +1,145 @@
-<header>
-    <small>{{category}}</small>
-    <br />
-    <h1>{{name}}</h1>
-    <p>
-        <b>{{description}}</b>
-    </p>
-    <div>
-        <b style="font-size: 24px;">${{price}}</b>
-    </div>
-</header>
-
-{{#with features}}
 <main>
-    <hr />
-
-    {{> title data='Specifications:' big=true}}
-
-    <section>
-        {{> title data='Processor:'}}
-        {{#with processor}}
-        <ul>
-            {{> li-el var='Brand:' val=brand}}
-            {{> li-el var='Model:' val=model}}
-            {{> li-el var='Speed:' val=speed}}
-            {{> li-el var='Cores:' val=cores}}
-            {{> li-el var='Cache:' val=cache}}
-        </ul>
+    <header>
+        <div>
+            <h1 class="display-4 mb-1">{{name}}
+                <span class="badge bg-dark rounded-pill fs-6 align-top fw-light mb-1">{{category}}</span>
+            </h1>
+        </div>
+        <p class="fw-bold my-0">{{description}}</p>
+        <div class="mt-1">
+            <span class="fs-1 fw-bold align-middle">${{price}}</span>
+            <button class="btn btn-dark btn-lg align-middle py-1 ms-2">Buy</button>
+        </div>
+    </header>
+    <section class="mt-4">
+        {{#with features}}
+            <h2 class="display-6 mb-4">Specifications</h2>
+            <section class="mb-4">
+                <h3 class="h4">Processor</h3>
+                <dl>
+                    {{#with processor}}
+                        {{> li-product var='Brand' val=brand}}
+                        {{> li-product var='Model' val=model}}
+                        {{> li-product var='Speed' val=speed}}
+                        {{> li-product var='Cores' val=cores}}
+                        {{> li-product var='Cache' val=cache}}
+                    {{/with}}
+                </dl>
+            </section>
+            <section class="mb-4">
+                <h3 class="h4">Memory</h3>
+                <dl>
+                    {{#with memory}}
+                        {{> li-product var='Type' val=type}}
+                        {{> li-product var='Size' val=size}}
+                        {{> li-product var='Speed' val=speed}}
+                    {{/with}}
+                </dl>
+            </section>
+            <section class="mb-4">
+                <h3 class="h4">Storage</h3>
+                <dl>
+                    {{#with storage}}
+                        {{> li-product var='Type' val=type}}
+                        {{> li-product var='Size' val=size}}
+                    {{/with}}
+                </dl>
+            </section>
+            <section class="mb-4">
+                <h3 class="h4">Display</h3>
+                <dl>
+                    {{#with display}}
+                        {{> li-product var='Size' val=size}}
+                        {{> li-product var='Resolution' val=resolution}}
+                        {{> li-product var='Technology' val=technology}}
+                        {{> li-product var='Color space' val=color_space}}
+                        {{> li-product var='Brightness' val=brightness}}
+                        {{> li-product var='Refresh rate' val=refresh_rate}}
+                    {{/with}}
+                </dl>
+            </section>
+            <section class="mb-4">
+                <h3 class="h4">Graphics</h3>
+                <dl>
+                    {{#with graphics}}
+                        {{> li-product var='Brand' val=brand}}
+                        {{> li-product var='Model' val=model}}
+                        {{> li-product var='Memory' val=memory}}
+                    {{/with}}
+                </dl>
+            </section>
+            <section class="mb-4">
+                <h3 class="h4">Ports</h3>
+                <dl>
+                    {{#each ports}}
+                        {{> li-product var='Type' val=type}}
+                        {{> li-product var='Number' val=count}}
+                        {{#if features}}
+                            <dl class="mb-1">
+                                <div class="row align-content-center">
+                                    <dt class="col-auto">
+                                        <span class="fw-normal">Features</span>
+                                    </dt>
+                                    <span class="col border-top border-1 mt-3"></span>
+                                    <dd class="col-6">
+                                        {{#each features}}
+                                            <div>{{this}}</div>
+                                        {{/each}}
+                                    </dd>
+                                </div>
+                            </dl>
+                        {{/if}}
+                    {{/each}}
+                </dl>
+            </section>
+            <section class="mb-4">
+                <h3 class="h4">Battery</h3>
+                <dl>
+                    {{#with battery}}
+                        {{> li-product var='Type' val=type}}
+                        {{> li-product var='Capacity' val=capacity}}
+                        {{> li-product var='Life' val=life}}
+                    {{/with}}
+                </dl>
+            </section>
+            <section class="mb-4">
+                <h3 class="h4">Weight & dimensions</h3>
+                <dl>
+                    {{#with dimensions}}
+                        {{> li-product var='Weight' val=../weight}}
+                        {{> li-product var='Height' val=height}}
+                        {{> li-product var='Width' val=width}}
+                        {{> li-product var='Depth' val=depth}}
+                    {{/with}}
+                </dl>
+            </section>
+            <section class="mb-4">
+                <h3 class="h4">Operating system</h3>
+                <p>{{operating_system}}</p>
+            </section>
+            <section>
+                <h3 class="mb-3">Recommended accessories:</h3>
+                <div class="row g-3">
+                    {{#each accessories}}
+                        <div class="col-auto">
+                            <div class="card h-100">
+                                <img src="https://picsum.photos/300/150" class="card-img-top">
+                                <div class="card-body pt-2 ps-2">
+                                    <div class="card-title h5 fw-bold mb-3">{{name}}</div>
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="h6 fs-5">${{price}}</span>
+                                        </div>
+                                        <div class="col text-end">
+                                            <button class="btn btn-dark">Add to cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+            </section>
         {{/with}}
     </section>
-
-    <section>
-        {{> title data='Memory:'}}
-        {{#with memory}}
-        <ul>
-            {{> li-el var='Type:' val=type}}
-            {{> li-el var='Size:' val=size}}
-            {{> li-el var='Speed:' val=speed}}
-        </ul>
-        {{/with}}
-    </section>
-
-    <section>
-        {{> title data='Storage:'}}
-        {{#with storage}}
-        <ul>
-            {{> li-el var='Type:' val=type}}
-            {{> li-el var='Size:' val=size}}
-        </ul>
-        {{/with}}
-    </section>
-
-    <section>
-        {{> title data='Display:'}}
-        {{#with display}}
-        <ul>
-            {{> li-el var='Size:' val=size}}
-            {{> li-el var='Resolution:' val=resolution}}
-            {{> li-el var='Technology:' val=technology}}
-            {{> li-el var='Color space:' val=color_space}}
-            {{> li-el var='Brightness:' val=brightness}}
-            {{> li-el var='Refresh rate:' val=refresh_rate}}
-        </ul>
-        {{/with}}
-    </section>
-
-    <section>
-        {{> title data='Graphics:'}}
-        {{#with graphics}}
-        <ul>
-            {{> li-el var='Brand:' val=brand}}
-            {{> li-el var='Model:' val=model}}
-            {{> li-el var='Memory:' val=memory}}
-        </ul>
-        {{/with}}
-    </section>
-
-    <section>
-        {{> title data='Ports:'}}
-        {{#each ports}}
-        <ul>
-            {{> li-el var='Type:' val=type}}
-            {{> li-el var='Number:' val=count}}
-            {{#if features}}
-            <li>
-                <b>Features:</b>
-                {{#each features}}
-                {{this}}{{#unless @last}}, {{/unless}}
-                {{/each}}
-            </li>
-            {{/if}}
-        </ul>
-        {{/each}}
-    </section>
-
-    <section>
-        {{> title data='Battery:'}}
-        {{#with battery}}
-        <ul>
-            {{> li-el var='Type:' val=type}}
-            {{> li-el var='Capacity:' val=capacity}}
-            {{> li-el var='Life:' val=life}}
-        </ul>
-        {{/with}}
-    </section>
-
-    <section>
-        {{> title data='Weight & dimensions:'}}
-        {{#with dimensions}}
-        <ul>
-            {{> li-el var='Weight:' val=../weight}}
-            {{> li-el var='Height:' val=height}}
-            {{> li-el var='Width:' val=width}}
-            {{> li-el var='Depth:' val=depth}}
-        </ul>
-        {{/with}}
-    </section>
-
-    <section>
-        {{> title data='Operating system:'}}
-        <ul>
-            <li>
-                <b>{{operating_system}}</b>
-            </li>
-        </ul>
-    </section>
-
-    <hr />
 </main>
-
-<footer>
-    {{> title data='Recommended accessories:' big=true}}
-
-    <ul>
-        {{#each accessories}}
-        <li>
-            <i>{{name}}</i> – ${{price}}
-        </li>
-        {{/each}}
-    </ul>
-    <br />
-</footer>
-{{/with}}

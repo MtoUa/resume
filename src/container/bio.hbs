@@ -1,144 +1,185 @@
-<header>
-    <h1>{{name}}</h1>
-    <p>
-        Was born on <b><time>{{birthdate}}</time></b>
-        <i>in {{birthplace}}.</i>
-        Died <b><time>{{deathdate}}</time></b>
-        <i>in {{deathplace}}.</i>
-        By nationality {{nationality}}
-        and {{occupation}} by occupation.
-        {{#each education}}
-        {{degree}} in {{field}}, {{institution}}, {{year}}.
-        {{/each}}
-    </p>
-
-    <div>
-        {{> title data='Known for:' big=true}}
-        <ul class="ms-1">
-            {{#each known_for}}
-            <li>
-                <strong>
-                    <em>{{this}}</em>
-                </strong>
-            </li>
-            {{/each}}
-        </ul>
+<main class="card bg-info mb-5">
+    <div class="card-body">
+        <h1 class="card-title display-3 text-white mb-3">{{name}}</h1>
+        <section>
+            <div class="card bg-info-subtle mb-3">
+                <div class="card-body pt-2">
+                    <div class="card-title display-6 text-info-emphasis mb-3">Main info</div>
+                    <section class="row g-3">
+                        <section class="col-4">
+                            <div class="card h-100">
+                                <div class="card-header h4 bg-info text-white">Known for</div>
+                                <ul class="card-body text-info-emphasis pt-2 pb-0 ms-3">
+                                    {{#each known_for}}
+                                    <li{{#unless @last}} class="mb-2" {{/unless}}>
+                                        <strong>{{this}}</strong>
+                                        </li>
+                                        {{/each}}
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="col">
+                            <div class="card h-100">
+                                <div class="card-header h4 bg-info text-white">Short bio</div>
+                                <p class="card-body text-info-emphasis pt-2 pb-0">
+                                    Was born on <b>
+                                        <time>{{birthdate}}</time>
+                                    </b>
+                                    <em>in {{birthplace}}.</em>
+                                    Died <b>
+                                        <time>{{deathdate}}</time>
+                                    </b>
+                                    <i>in {{deathplace}}.</i>
+                                    By nationality {{nationality}}
+                                    and {{occupation}} by occupation.
+                                    {{#each education}}
+                                    {{degree}} in {{field}}, {{institution}}, {{year}}.
+                                    {{/each}}
+                                </p>
+                            </div>
+                        </section>
+                    </section>
+                </div>
+            </div>
+            <div class="card bg-info-subtle mb-3">
+                <div class="card-body pt-2">
+                    <div class="card-title display-6 text-info-emphasis mb-3">Science activity</div>
+                    <section class="row g-3">
+                        <section class="col">
+                            <div class="card h-100">
+                                <div class="card-header h4 bg-info text-white">Notable publications</div>
+                                <ul class="card-body text-info-emphasis pt-2 pb-0 ms-3">
+                                    {{#each notable_publications}}
+                                    <li{{#unless @last}} class="mb-2" {{/unless}}>
+                                        <i>"{{title}}"</i> (<time>{{year}}</time>, {{publisher}})
+                                        </li>
+                                        {{/each}}
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="col">
+                            <div class="card h-100">
+                                <div class="card-header h4 bg-info text-white">Major discoveries</div>
+                                <ul class="card-body text-info-emphasis pt-2 pb-0 ms-3">
+                                    {{#each major_discoveries}}
+                                    <li{{#unless @last}} class="mb-2" {{/unless}}>
+                                        <b>{{title}}</b> (<time>{{year}}</time>) – {{description}}
+                                        </li>
+                                        {{/each}}
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="col">
+                            <div class="card h-100">
+                                <div class="card-header h4 bg-info text-white">Awards</div>
+                                <ul class="card-body text-info-emphasis pt-2 pb-0 ms-3">
+                                    {{#each awards}}
+                                    <li{{#unless @last}} class="mb-2" {{/unless}}>
+                                        <b>{{title}}</b> (<time>{{year}}</time>) – {{description}}
+                                        </li>
+                                        {{/each}}
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </div>
+            </div>
+            <div class="card bg-info-subtle mb-3">
+                <div class="card-body pt-2">
+                    <div class="card-title display-6 text-info-emphasis mb-3">Influence</div>
+                    <section class="row g-3">
+                        <section class="col">
+                            <div class="card h-100">
+                                <div class="card-header h4 bg-info text-white">Partners</div>
+                                <ul class="card-body text-info-emphasis pt-2 pb-0 ms-3">
+                                    {{#each partners}}
+                                    <li{{#unless @last}} class="mb-2" {{/unless}}>
+                                        <i>{{name}}</i>, {{relationship}} (<time>{{years}}</time>)
+                                        </li>
+                                        {{/each}}
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="col">
+                            <div class="card h-100">
+                                <div class="card-header h4 bg-info text-white">Influences</div>
+                                <ul class="card-body text-info-emphasis pt-2 pb-0 ms-3">
+                                    {{#each influences}}
+                                    <li{{#unless @last}} class="mb-2" {{/unless}}>
+                                        <i>{{this}}</i>
+                                        </li>
+                                        {{/each}}
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="col">
+                            <div class="card h-100">
+                                <div class="card-header h4 bg-info text-white">Influenced</div>
+                                <ul class="card-body text-info-emphasis pt-2 pb-0 ms-3">
+                                    {{#each influenced}}
+                                    <li{{#unless @last}} class="mb-2" {{/unless}}>
+                                        <em>{{this}}</em>
+                                        </li>
+                                        {{/each}}
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </div>
+            </div>
+            <section class="row justify-content-center g-3">
+                <section class="col-8">
+                    <div class="card bg-info-subtle">
+                        <div class="card-body pt-2">
+                            <div class="card-title display-6 text-info-emphasis mb-3">The best quotes</div>
+                            <ul class="list-group">
+                                {{#each quotes}}
+                                <li class="list-group-item text-info-emphasis">
+                                    <q>
+                                        <b>
+                                            <i>{{this}}</i>
+                                        </b>
+                                    </q>
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </section>
     </div>
-</header>
-
-<hr class="mt-4 mb-3" />
-
-<main>
-    <section>
-        {{> title data='Science activity:' big=true }}
-        <div class="ms-3 mt-2">
-            <div>
-                {{> title data='Notable publications:'}}
-                <ul>
-                    {{#each notable_publications}}
-                    <li>
-                        <div>
-                            <em>"{{title}}"</em>,
-                            <time>{{year}}</time>, {{publisher}}
-                        </div>
-                    </li>
-                    {{/each}}
-                </ul>
-            </div>
-            <div>
-                {{> title data='Major discoveries:'}}
-                <ul>
-                    {{#each major_discoveries}}
-                    <li>
-                        <div>
-                            <em>{{title}}</em> <i>({{year}})</i> – {{description}}
-                        </div>
-                    </li>
-                    {{/each}}
-                </ul>
-            </div>
-            <div>
-                {{> title data='Awards:'}}
-                <ul>
-                    {{#each awards}}
-                    <li>
-                        <b>{{title}} (<time>{{year}}</time>)</b> – {{description}}
-                    </li>
-                    {{/each}}
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <hr class="mt-4 mb-3" />
-
-    <section>
-        {{> title data='Influence:' big=true }}
-        <div class="ms-3 mt-2">
-            <div>
-                {{> title data='Partners:'}}
-                <ul>
-                    {{#each partners}}
-                    <li>
-                        <i>{{name}}</i>, {{relationship}} (<time>{{years}}</time>)
-                    </li>
-                    {{/each}}
-                </ul>
-            </div>
-            <div>
-                {{> title data='Influences:'}}
-                <ul>
-                    {{#each influences}}
-                    <li>
-                        <i>{{this}}</i>
-                    </li>
-                    {{/each}}
-                </ul>
-            </div>
-            <div>
-                {{> title data='Influenced:'}}
-                <ul>
-                    {{#each influenced}}
-                    <li>
-                        <em>{{this}}</em>
-                    </li>
-                    {{/each}}
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <hr class="mt-4 mb-3" />
-
-    <section>
-        {{> title data='The best quotes:' big=true}}
-        <div class="ms-3 mt-2">
-            {{#each quotes}}
-            <p>
-                <q>
-                    <b>
-                        <i>{{this}}</i>
-                    </b>
-                </q>
-            </p>
-            {{/each}}
-        </div>
-    </section>
 </main>
 
-<hr class="mt-4 mb-3" />
-
-<footer>
-    {{#with contributions}}
-    {{> title data=title big=true}}
-    <div>
-        <div>
-            <time>
-                <i>{{year}}</i>
-            </time>
+<section class="row justify-content-center g-3">
+    <div class="col-6">
+        <div class="card mb-5">
+            {{#with contributions}}
+            <div class="card-header bg-secondary text-white h3">{{title}}</div>
+            <div class="card-body pt-2 bg-light">
+                <section>
+                    <div class="mb-2 text-secondary">
+                        <i>
+                            <time>{{year}}</time>
+                        </i>
+                    </div>
+                    <p class="mb-1">{{description}}</p>
+                </section>
+                <section>
+                    <div class="col-form-label h6 mb-1">
+                        What was his first invention?
+                    </div>
+                    <div class="row g-3 align-items-center">
+                        <div class="col-auto">
+                            <input class="form-control" placeholder="{{field}}">
+                        </div>
+                        <div class="col-auto">
+                            <button class="btn btn-secondary">Submit</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            {{/with}}
         </div>
-        <p>{{description}}</p>
-        <input placeholder="{{field}}">
     </div>
-    {{/with}}
-</footer>
+</section>
